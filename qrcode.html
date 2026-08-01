@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fr" data-title-key="meta.qr.title">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Générateur de QR code — ELEMENT by Lilly</title>
+<meta name="description" content="Générez un QR code pour vos flyers et publicités ELEMENT by Lilly.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FAF6EF">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/img/site/icon-192.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/img/site/logo.png" alt="ELEMENT by Lilly">
+      <span class="brand-text">ELEMENT by Lilly</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" data-i18n="nav.home">Accueil</a>
+      <a href="boutique.html" data-i18n="nav.boutique">Boutique</a>
+      <a href="histoire.html" data-i18n="nav.histoire">Notre histoire</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch">
+        <button class="lang-current" type="button">
+          <span data-lang-label>Français</span>
+          <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="lang-menu">
+          <button data-lang-option="fr">Français</button>
+          <button data-lang-option="en">English</button>
+          <button data-lang-option="es">Español</button>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav">
+  <div class="mobile-nav-head">
+    <span class="brand-text">ELEMENT by Lilly</span>
+    <button class="mobile-nav-close" aria-label="Fermer">&times;</button>
+  </div>
+  <a href="index.html" data-i18n="nav.home">Accueil</a>
+  <a href="boutique.html" data-i18n="nav.boutique">Boutique</a>
+  <a href="histoire.html" data-i18n="nav.histoire">Notre histoire</a>
+  <a href="contact.html" data-i18n="nav.contact">Contact</a>
+</div>
+
+<main>
+  <section style="padding-top:70px;">
+    <div class="container section-head">
+      <span class="eyebrow" data-i18n="qr.eyebrow">Outil</span>
+      <h1 data-i18n="qr.title">Générateur de QR code</h1>
+      <p data-i18n="qr.lead">Créez un QR code pour vos flyers, cartes de visite ou réseaux sociaux — il pointera vers l'adresse de votre choix (le site, Instagram, Pinterest…).</p>
+    </div>
+    <div class="container qr-tool">
+      <div>
+        <div class="form-group">
+          <label for="qr-url" data-i18n="qr.label.url">Lien ou texte à encoder</label>
+          <input type="text" id="qr-url" data-i18n-placeholder="qr.placeholder" placeholder="https://elementbylilly.fr" value="https://elementbylilly.fr">
+        </div>
+        <div class="form-group">
+          <label data-i18n="qr.label.color">Couleur</label>
+          <div class="color-swatches">
+            <button class="swatch active" data-color="#3A342C" style="background:#3A342C" aria-label="Charbon"></button>
+            <button class="swatch" data-color="#B97A54" style="background:#B97A54" aria-label="Terracotta"></button>
+            <button class="swatch" data-color="#7C97A3" style="background:#7C97A3" aria-label="Eau"></button>
+            <button class="swatch" data-color="#8DA88E" style="background:#8DA88E" aria-label="Sauge"></button>
+          </div>
+        </div>
+      </div>
+      <div class="qr-preview">
+        <div id="qr-render"></div>
+        <button id="qr-download-png" class="btn btn-primary" style="width:100%; justify-content:center;" data-i18n="qr.download.png">Télécharger en PNG</button>
+        <button id="qr-download-svg" class="btn btn-outline" style="width:100%; justify-content:center;" data-i18n="qr.download.svg">Télécharger en SVG</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:0; padding-top:0;">
+      <span>&copy; <span data-year>2026</span> ELEMENT by Lilly</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/vendor/qrcode.min.js"></script>
+<script src="js/qrcode-tool.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

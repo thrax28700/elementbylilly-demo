@@ -1,0 +1,17 @@
+{
+  "name": "ELEMENT by Lilly",
+  "short_name": "E. by Lilly",
+  "description": "Bijoux, décorations et illustrations artisanales inspirées de la nature.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FAF6EF",
+  "theme_color": "#FAF6EF",
+  "lang": "fr",
+  "icons": [
+    { "src": "assets/img/site/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/site/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/site/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "assets/img/site/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
