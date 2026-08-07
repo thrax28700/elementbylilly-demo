@@ -79,8 +79,8 @@ p{ margin:0 0 1em; color:var(--text-soft); }
 }
 .btn-primary{ background:var(--terre); color:#fff; box-shadow:var(--shadow-soft); }
 .btn-primary:hover{ background:var(--terre-dark); transform:translateY(-2px); box-shadow:var(--shadow); }
-.btn-outline{ background:transparent; border-color:var(--text); color:var(--text); }
-.btn-outline:hover{ background:var(--text); color:#fff; transform:translateY(-2px); }
+.btn-outline{ background:transparent; border-color:var(--terre); color:var(--terre-dark); }
+.btn-outline:hover{ background:var(--terre); color:#fff; transform:translateY(-2px); }
 .btn-light{ background:#fff; color:var(--terre); }
 .btn-light:hover{ transform:translateY(-2px); box-shadow:var(--shadow); }
 .btn[disabled]{ opacity:.5; cursor:not-allowed; transform:none !important; }
@@ -98,7 +98,7 @@ p{ margin:0 0 1em; color:var(--text-soft); }
   max-width:var(--container); margin:0 auto;
 }
 .brand{ display:flex; align-items:center; gap:12px; }
-.brand img{ height:42px; width:auto; }
+.brand img{ height:62px; width:auto; }
 .brand-text{ font-family:var(--font-serif); font-weight:500; letter-spacing:.02em; font-size:1.4rem; color:var(--text); }
 .main-nav{ display:flex; align-items:center; gap:34px; }
 .main-nav a{
@@ -260,7 +260,13 @@ section{ padding:96px 0; }
   content:''; display:block; width:44px; height:2px; margin:22px auto 0;
   background:var(--terre); border-radius:2px;
 }
-.bg-alt{ background:var(--bg-alt); }
+.bg-alt{
+  background:
+    radial-gradient(50% 60% at 12% 8%, rgba(141,168,142,.22), transparent 60%),
+    radial-gradient(45% 55% at 92% 15%, rgba(124,151,163,.2), transparent 60%),
+    radial-gradient(55% 50% at 50% 105%, rgba(201,166,107,.2), transparent 60%),
+    var(--bg-alt);
+}
 
 /* Apparition douce au defilement */
 .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease; }
@@ -307,6 +313,13 @@ section{ padding:96px 0; }
 }
 .category-card h3{ color:#fff; margin:0; font-size:1.25rem; }
 .category-card span{ color:rgba(255,255,255,.8); font-size:.78rem; letter-spacing:.05em; }
+.category-card::before{
+  content:''; position:absolute; left:0; right:0; bottom:0; height:5px; z-index:2;
+}
+.category-grid a:nth-child(1)::before{ background:var(--terre); }
+.category-grid a:nth-child(2)::before{ background:var(--sauge); }
+.category-grid a:nth-child(3)::before{ background:var(--eau); }
+.category-grid a:nth-child(4)::before{ background:var(--or); }
 
 /* Product grid */
 .filter-bar{
@@ -338,6 +351,10 @@ section{ padding:96px 0; }
 .product-title{ font-family:var(--font-serif); font-size:1.08rem; margin:0 0 4px; }
 .product-price{ color:var(--terre); font-size:.92rem; letter-spacing:.02em; }
 .product-cat{ font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--text-soft); margin-bottom:6px; display:block; }
+.product-card[data-category="bijoux"] .product-cat{ color:var(--terre); }
+.product-card[data-category="decorations-a-poser"] .product-cat{ color:var(--sauge); }
+.product-card[data-category="decorations-murales"] .product-cat{ color:var(--eau); }
+.product-card[data-category="illustrations"] .product-cat{ color:var(--or); }
 
 /* Modal (quick view) */
 .modal-overlay{
@@ -394,10 +411,13 @@ section{ padding:96px 0; }
 .values-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:60px; }
 .value-card{ text-align:center; padding:32px 20px; }
 .value-icon{
-  width:64px; height:64px; border-radius:50%; background:var(--bg-alt); margin:0 auto 18px;
-  display:flex; align-items:center; justify-content:center;
+  width:64px; height:64px; border-radius:50%; background:#fff; margin:0 auto 18px;
+  display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-soft);
 }
 .value-icon svg{ width:28px; height:28px; }
+.value-card:nth-child(1) .value-icon{ background:rgba(185,122,84,.14); }
+.value-card:nth-child(2) .value-icon{ background:rgba(141,168,142,.16); }
+.value-card:nth-child(3) .value-icon{ background:rgba(124,151,163,.16); }
 
 /* Contact */
 .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:70px; }
@@ -450,7 +470,11 @@ section{ padding:96px 0; }
 .install-banner .dismiss{ background:none; border:0; cursor:pointer; color:var(--text-soft); font-size:1.1rem; }
 
 /* Footer */
-.site-footer{ background:#F3EBDC; border-top:1px solid var(--line); padding:70px 0 30px; }
+.site-footer{ position:relative; background:#F3EBDC; border-top:1px solid var(--line); padding:70px 0 30px; }
+.site-footer::before{
+  content:''; position:absolute; top:-1px; left:0; right:0; height:4px;
+  background:linear-gradient(90deg, var(--terre), var(--or), var(--sauge), var(--eau));
+}
 .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:50px; }
 .footer-brand .brand-text{ font-size:2rem; }
 .footer-col h4{ font-size:.78rem; text-transform:uppercase; letter-spacing:.14em; font-family:var(--font-sans); color:var(--text-soft); margin-bottom:16px; }
