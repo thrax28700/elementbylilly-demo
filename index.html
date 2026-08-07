@@ -22,7 +22,6 @@
   <div class="header-inner">
     <a href="index.html" class="brand">
       <img src="assets/img/site/logo.png" alt="ELEMENT by Lilly">
-      <span class="brand-text">ELEMENT by Lilly</span>
     </a>
     <nav class="main-nav">
       <a href="index.html" class="active" data-i18n="nav.home">Accueil</a>
@@ -79,48 +78,38 @@
         </div>
         <div class="hero-elements">
           <div class="element-chip">
-            <span class="element-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#B97A54" stroke-width="1.4"><path d="M3 19c3-6 6-9 9-9s6 3 9 9"/><path d="M3 19h18"/></svg></span>
+            <span class="element-dot dot-terre"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M3 19c3-6 6-9 9-9s6 3 9 9"/><path d="M3 19h18"/></svg></span>
             <span data-i18n="hero.element.terre">Terre</span>
           </div>
           <div class="element-chip">
-            <span class="element-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#7C97A3" stroke-width="1.4"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11Z"/></svg></span>
+            <span class="element-dot dot-eau"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11Z"/></svg></span>
             <span data-i18n="hero.element.eau">Eau</span>
           </div>
           <div class="element-chip">
-            <span class="element-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#8DA88E" stroke-width="1.4"><path d="M12 3v18M12 9 7 5M12 12l6-4M12 16l-5 3"/></svg></span>
+            <span class="element-dot dot-bois"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M12 3v18M12 9 7 5M12 12l6-4M12 16l-5 3"/></svg></span>
             <span data-i18n="hero.element.bois">Bois</span>
           </div>
           <div class="element-chip">
-            <span class="element-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A66B" stroke-width="1.4"><circle cx="12" cy="12" r="2.4"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.8 2.8M15.2 15.2 18 18M18 6l-2.8 2.8M8.8 15.2 6 18"/></svg></span>
+            <span class="element-dot dot-lin"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><circle cx="12" cy="12" r="2.4"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.8 2.8M15.2 15.2 18 18M18 6l-2.8 2.8M8.8 15.2 6 18"/></svg></span>
             <span data-i18n="hero.element.lin">Lin</span>
           </div>
         </div>
       </div>
       <div class="hero-photo">
-        <div class="hero-photo-frame">
-          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration zen inspirée de la nature">
-            <defs>
-              <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#F7F1E4"/>
-                <stop offset="100%" stop-color="#ECE0C9"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="500" fill="url(#skyGrad)"/>
-            <circle cx="292" cy="118" r="44" fill="none" stroke="#C9A66B" stroke-width="1.5"/>
-            <g stroke="#79705F" stroke-width="1.3" fill="none" opacity=".55">
-              <path d="M46 55c14 28 18 58 8 90"/>
-              <path d="M56 84c14-4 24-13 27-25"/>
-              <path d="M52 110c15-3 26-11 30-22"/>
-              <path d="M56 138c15-3 26-11 30-22"/>
-            </g>
-            <path d="M0 318c90-58 170-16 400-64v246H0z" fill="#8DA88E" opacity=".55"/>
-            <path d="M0 372c110-46 260-14 400-58v186H0z" fill="#7C97A3" opacity=".5"/>
-            <path d="M0 424c120-28 280-6 400-30v106H0z" fill="#B97A54" opacity=".45"/>
-            <g stroke="#7C97A3" stroke-width="1.2" fill="none" opacity=".6">
-              <path d="M36 460q40-12 80 0t80 0 80 0 80 0"/>
-              <path d="M36 480q40-12 80 0t80 0 80 0 80 0"/>
-            </g>
-          </svg>
+        <div class="collage">
+          <div class="collage-main">
+            <img src="assets/img/products/voilier-en-bois-flott-et-voile-en-toile-de-lin.jpg" alt="Voilier en bois flotté et voile en toile de lin, création artisanale">
+          </div>
+          <div class="collage-accent">
+            <img src="assets/img/products/boucles-d-oreilles-terre-de-lune.jpg" alt="Boucles d'oreilles Terre de lune en argile et laiton">
+          </div>
+          <div class="collage-tag">
+            <span class="collage-tag-dot"></span>
+            <div>
+              <strong data-i18n="hero.tag.title">Pièce unique</strong>
+              <span data-i18n="hero.tag.text">façonnée à l'atelier</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -128,15 +117,53 @@
 
   <section>
     <div class="container intro-grid">
-      <div class="intro-visual">
-        <img src="assets/img/site/emilie.jpg" alt="Émilie, fondatrice d'ELEMENT by Lilly">
-        <span class="signature">Émilie</span>
+      <div class="intro-visual-wrap">
+        <div class="intro-visual">
+          <img src="assets/img/site/emilie.jpg" alt="Émilie, fondatrice d'ELEMENT by Lilly">
+          <span class="signature">Émilie</span>
+        </div>
       </div>
       <div>
         <span class="eyebrow" data-i18n="intro.eyebrow">La marque</span>
         <h2 data-i18n="intro.title">Une artisane, une sensibilité</h2>
         <p data-i18n="intro.text">ELEMENT by Lilly est né de la sensibilité profonde d'Émilie et de sa passion pour la beauté authentique de la nature. Chaque pièce est façonnée à la main, avec soin, dans le respect du vivant.</p>
         <a href="histoire.html" class="btn btn-outline" data-i18n="intro.link">Lire notre histoire</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="gallery.eyebrow">L'atelier</span>
+        <h2 data-i18n="gallery.title">Chaque pièce raconte une matière</h2>
+        <p data-i18n="gallery.text">Bois flotté ramassé sur la côte, argile modelée à la main, lin tissé, liège et laiton : un aperçu des créations sorties de l'atelier d'Émilie.</p>
+      </div>
+      <div class="mosaic">
+        <a class="mosaic-item tall" href="boutique.html?cat=decorations-a-poser">
+          <img src="assets/img/products/village-c-tier.jpg" alt="Village côtier en bois flotté" loading="lazy">
+          <span class="mosaic-cap" data-i18n="gallery.item.village">Village côtier · bois flotté</span>
+        </a>
+        <a class="mosaic-item" href="boutique.html?cat=bijoux">
+          <img src="assets/img/products/boucles-d-oreilles-fleur-de-marbre-bleu.jpg" alt="Boucles d'oreilles Fleur de marbre bleu" loading="lazy">
+          <span class="mosaic-cap" data-i18n="gallery.item.boucles">Argile & laiton</span>
+        </a>
+        <a class="mosaic-item tall" href="boutique.html?cat=decorations-a-poser">
+          <img src="assets/img/products/phare-c-tier-en-bois-flott.jpg" alt="Phare côtier en bois flotté" loading="lazy">
+          <span class="mosaic-cap" data-i18n="gallery.item.phare">Phare côtier · bois flotté</span>
+        </a>
+        <a class="mosaic-item" href="boutique.html?cat=illustrations">
+          <img src="assets/img/products/insouciance.jpg" alt="Illustration Insouciance" loading="lazy">
+          <span class="mosaic-cap" data-i18n="gallery.item.illustration">Illustration à l'encre</span>
+        </a>
+        <a class="mosaic-item" href="boutique.html?cat=decorations-murales">
+          <img src="assets/img/products/h-tel-en-bois.jpg" alt="Hôtel en bois et liège" loading="lazy">
+          <span class="mosaic-cap" data-i18n="gallery.item.hotel">Bois & liège</span>
+        </a>
+        <a class="mosaic-item" href="boutique.html?cat=bijoux">
+          <img src="assets/img/products/boucles-d-oreilles-oc-an-d-or.jpg" alt="Boucles d'oreilles Océan d'or" loading="lazy">
+          <span class="mosaic-cap" data-i18n="gallery.item.ocean">Nacre & or</span>
+        </a>
       </div>
     </div>
   </section>

@@ -34,6 +34,15 @@ body{
   color:var(--text);
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+/* Grain de papier subtil sur toutes les pages, pour casser les aplats */
+body::before{
+  content:'';
+  position:fixed; inset:0; z-index:2000; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.05;
+  mix-blend-mode:multiply;
 }
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
@@ -187,11 +196,42 @@ p{ margin:0 0 1em; color:var(--text-soft); }
 }
 .hero-photo-frame img, .hero-photo-frame svg{ width:100%; height:100%; object-fit:cover; display:block; }
 
+/* Collage photo artisanal du hero */
+.collage{ position:relative; max-width:420px; margin-left:auto; aspect-ratio:4/5; }
+.collage-main{
+  position:relative; width:88%; height:92%; margin-left:auto;
+  border-radius:44% 56% 60% 40% / 50% 45% 55% 50%;
+  overflow:hidden; box-shadow:var(--shadow);
+  transform:rotate(-2deg);
+}
+.collage-main img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.08); }
+.collage-main::after{
+  content:''; position:absolute; inset:0; border-radius:inherit;
+  box-shadow:inset 0 0 0 8px rgba(255,255,255,.55);
+}
+.collage-accent{
+  position:absolute; left:-4%; bottom:-4%; width:46%; aspect-ratio:1/1;
+  border-radius:50%; overflow:hidden; border:7px solid var(--bg); box-shadow:var(--shadow);
+  transform:rotate(-6deg); z-index:2;
+}
+.collage-accent img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.1); }
+.collage-tag{
+  position:absolute; top:6%; right:-6%; z-index:2;
+  background:#fff; border-radius:var(--radius-md); box-shadow:var(--shadow);
+  padding:14px 18px; max-width:190px; display:flex; align-items:flex-start; gap:10px;
+  transform:rotate(3deg);
+}
+.collage-tag-dot{ width:9px; height:9px; margin-top:6px; border-radius:50%; background:var(--terre); flex-shrink:0; }
+.collage-tag strong{ display:block; font-family:var(--font-serif); font-weight:500; font-size:.92rem; color:var(--text); line-height:1.2; }
+.collage-tag span{ font-size:.72rem; color:var(--text-soft); }
+
 @media (max-width: 980px){
   .hero-inner{ grid-template-columns:1fr; text-align:center; gap:40px; }
   .hero-text{ text-align:center; order:2; }
   .hero-photo{ order:1; }
   .hero-photo-frame{ margin:0 auto; max-width:260px; }
+  .collage{ margin:0 auto; max-width:280px; }
+  .collage-tag{ display:none; }
   .hero-actions, .hero-elements{ justify-content:center; }
   .hero p.lead{ margin-left:auto; margin-right:auto; }
 }
@@ -200,10 +240,15 @@ p{ margin:0 0 1em; color:var(--text-soft); }
   font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--text-soft);
 }
 .element-dot{
-  width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-  background:#fff; box-shadow:var(--shadow-soft);
+  position:relative; width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  background-size:cover; background-position:center; box-shadow:var(--shadow-soft); overflow:hidden;
 }
-.element-dot svg{ width:24px; height:24px; }
+.element-dot::before{ content:''; position:absolute; inset:0; background:rgba(58,52,44,.32); }
+.element-dot svg{ position:relative; z-index:1; width:22px; height:22px; stroke:#fff; }
+.dot-terre{ background-image:url('../assets/img/products/boucles-d-oreilles-terre-de-lune.jpg'); }
+.dot-eau{ background-image:url('../assets/img/products/boucles-d-oreilles-bleu-de-glace.jpg'); }
+.dot-bois{ background-image:url('../assets/img/products/maison-en-bois.jpg'); }
+.dot-lin{ background-image:url('../assets/img/products/voilier-en-bois-flott-et-voile-en-toile-de-lin.jpg'); }
 
 @keyframes riseIn{ from{ opacity:0; transform:translateY(18px);} to{ opacity:1; transform:translateY(0);} }
 
@@ -216,17 +261,48 @@ section{ padding:96px 0; }
 .intro-grid{
   display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center;
 }
+.intro-visual-wrap{ position:relative; }
+.intro-visual-wrap::before{
+  content:''; position:absolute; inset:20px -20px -20px 20px; z-index:0;
+  background:var(--sable); border-radius:var(--radius-lg); transform:rotate(-3deg);
+}
 .intro-visual{
   aspect-ratio:1/1.05; border-radius:var(--radius-lg);
-  position:relative; overflow:hidden; box-shadow:var(--shadow);
+  position:relative; z-index:1; overflow:hidden; box-shadow:var(--shadow);
 }
-.intro-visual img{ width:100%; height:100%; object-fit:cover; }
+.intro-visual img{ width:100%; height:100%; object-fit:cover; filter:saturate(1.05); }
 .intro-visual::before{
   content:''; position:absolute; inset:0;
   background:linear-gradient(0deg, rgba(58,52,44,.75) 0%, rgba(58,52,44,0) 45%);
 }
 .intro-visual .signature{
   position:absolute; z-index:1; bottom:28px; left:28px; color:#fff; font-family:var(--font-serif); font-style:italic; font-weight:400; font-size:1.9rem;
+}
+
+/* Mosaïque atelier */
+.mosaic{
+  display:grid; grid-template-columns:repeat(4, 1fr); grid-auto-rows:150px; gap:18px;
+}
+.mosaic-item{
+  position:relative; display:block; overflow:hidden; border-radius:var(--radius-md);
+  box-shadow:var(--shadow-soft); transition:box-shadow .3s ease;
+}
+.mosaic-item.tall{ grid-row:span 2; }
+.mosaic-item img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.08); transition:transform .6s ease; }
+.mosaic-item:hover{ box-shadow:var(--shadow); }
+.mosaic-item:hover img{ transform:scale(1.08) rotate(1deg); }
+.mosaic-cap{
+  position:absolute; left:0; right:0; bottom:0; padding:16px; color:#fff;
+  font-size:.78rem; letter-spacing:.03em;
+  background:linear-gradient(0deg, rgba(58,52,44,.78) 0%, rgba(58,52,44,0) 65%);
+  opacity:0; transform:translateY(6px); transition:all .25s ease;
+}
+.mosaic-item:hover .mosaic-cap{ opacity:1; transform:translateY(0); }
+@media (max-width: 980px){
+  .mosaic{ grid-template-columns:repeat(3, 1fr); grid-auto-rows:130px; }
+}
+@media (max-width: 560px){
+  .mosaic{ grid-template-columns:repeat(2, 1fr); grid-auto-rows:150px; }
 }
 
 /* Category cards */
@@ -238,7 +314,7 @@ section{ padding:96px 0; }
   box-shadow:var(--shadow-soft); transition:transform .35s ease, box-shadow .35s ease;
 }
 .category-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
-.category-card img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+.category-card img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; filter:saturate(1.08); }
 .category-card:hover img{ transform:scale(1.08); }
 .category-card .overlay{
   position:absolute; inset:0; background:linear-gradient(0deg, rgba(58,52,44,.72) 0%, rgba(58,52,44,0) 55%);
@@ -265,7 +341,7 @@ section{ padding:96px 0; }
   position:relative; aspect-ratio:1/1; border-radius:var(--radius-md); overflow:hidden;
   background:var(--bg-alt); box-shadow:var(--shadow-soft); margin-bottom:14px;
 }
-.product-media img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.product-media img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; filter:saturate(1.08); }
 .product-card:hover .product-media img{ transform:scale(1.06); }
 .product-quick{
   position:absolute; right:12px; bottom:12px; width:40px; height:40px; border-radius:50%;
