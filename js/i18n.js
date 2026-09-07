@@ -39,18 +39,9 @@ const I18N = {
     "intro.text": "ELEMENT by Lilly est né de la sensibilité profonde d'Émilie et de sa passion pour la beauté authentique de la nature. Chaque pièce est façonnée à la main, avec soin, dans le respect du vivant.",
     "intro.link": "Lire notre histoire",
 
-    "gallery.eyebrow": "L'atelier",
-    "gallery.title": "Chaque pièce raconte une matière",
-    "gallery.text": "Bois flotté ramassé sur la côte, argile modelée à la main, lin tissé, liège et laiton : un aperçu des créations sorties de l'atelier d'Émilie.",
-    "gallery.item.village": "Village côtier · bois flotté",
-    "gallery.item.boucles": "Argile & laiton",
-    "gallery.item.phare": "Phare côtier · bois flotté",
-    "gallery.item.illustration": "Illustration à l'encre",
-    "gallery.item.hotel": "Bois & liège",
-    "gallery.item.ocean": "Nacre & or",
-
     "categories.eyebrow": "La boutique",
     "categories.title": "Quatre univers, une même matière première : la nature",
+    "categories.note": "Chaque catégorie est façonnée à la main, à l'atelier, en petite série.",
 
     "featured.eyebrow": "Nouveautés",
     "featured.title": "Les dernières créations",
@@ -163,18 +154,9 @@ const I18N = {
     "intro.text": "ELEMENT by Lilly was born from Émilie's deep sensitivity and her passion for the authentic beauty of nature. Every piece is shaped by hand, with care, in respect of the living world.",
     "intro.link": "Read our story",
 
-    "gallery.eyebrow": "The workshop",
-    "gallery.title": "Every piece tells a material",
-    "gallery.text": "Driftwood gathered along the coast, hand-shaped clay, woven linen, cork and brass: a glimpse of the creations coming out of Émilie's workshop.",
-    "gallery.item.village": "Coastal village · driftwood",
-    "gallery.item.boucles": "Clay & brass",
-    "gallery.item.phare": "Coastal lighthouse · driftwood",
-    "gallery.item.illustration": "Ink illustration",
-    "gallery.item.hotel": "Wood & cork",
-    "gallery.item.ocean": "Mother-of-pearl & gold",
-
     "categories.eyebrow": "The shop",
     "categories.title": "Four worlds, one raw material: nature",
+    "categories.note": "Every category is shaped by hand, in the workshop, in small batches.",
 
     "featured.eyebrow": "New arrivals",
     "featured.title": "Latest creations",
@@ -287,18 +269,9 @@ const I18N = {
     "intro.text": "ELEMENT by Lilly nació de la profunda sensibilidad de Émilie y su pasión por la belleza auténtica de la naturaleza. Cada pieza se moldea a mano, con cuidado, respetando lo vivo.",
     "intro.link": "Leer nuestra historia",
 
-    "gallery.eyebrow": "El taller",
-    "gallery.title": "Cada pieza cuenta una materia",
-    "gallery.text": "Madera flotante recogida en la costa, arcilla moldeada a mano, lino tejido, corcho y latón: un vistazo a las creaciones que salen del taller de Émilie.",
-    "gallery.item.village": "Pueblo costero · madera flotante",
-    "gallery.item.boucles": "Arcilla y latón",
-    "gallery.item.phare": "Faro costero · madera flotante",
-    "gallery.item.illustration": "Ilustración a tinta",
-    "gallery.item.hotel": "Madera y corcho",
-    "gallery.item.ocean": "Nácar y oro",
-
     "categories.eyebrow": "La tienda",
     "categories.title": "Cuatro universos, una misma materia prima: la naturaleza",
+    "categories.note": "Cada categoría se moldea a mano, en el taller, en pequeñas series.",
 
     "featured.eyebrow": "Novedades",
     "featured.title": "Las últimas creaciones",

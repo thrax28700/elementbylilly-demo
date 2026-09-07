@@ -95,20 +95,18 @@
           </div>
         </div>
       </div>
-      <div class="hero-photo">
-        <div class="collage">
-          <div class="collage-main">
-            <img src="assets/img/products/voilier-en-bois-flott-et-voile-en-toile-de-lin.jpg" alt="Voilier en bois flotté et voile en toile de lin, création artisanale">
-          </div>
-          <div class="collage-accent">
-            <img src="assets/img/products/boucles-d-oreilles-terre-de-lune.jpg" alt="Boucles d'oreilles Terre de lune en argile et laiton">
-          </div>
-          <div class="collage-tag">
-            <span class="collage-tag-dot"></span>
-            <div>
-              <strong data-i18n="hero.tag.title">Pièce unique</strong>
-              <span data-i18n="hero.tag.text">façonnée à l'atelier</span>
-            </div>
+      <div class="hero-photo-col">
+        <div class="frame">
+          <img src="assets/img/products/voilier-en-bois-flott-et-voile-en-toile-de-lin.jpg" alt="Voilier en bois flotté et voile en toile de lin, création artisanale">
+        </div>
+        <div class="hero-photo-accent">
+          <img src="assets/img/products/boucles-d-oreilles-terre-de-lune.jpg" alt="Boucles d'oreilles Terre de lune en argile et laiton">
+        </div>
+        <div class="hero-photo-tag">
+          <span class="hero-photo-tag-dot"></span>
+          <div>
+            <strong data-i18n="hero.tag.title">Pièce unique</strong>
+            <span data-i18n="hero.tag.text">façonnée à l'atelier</span>
           </div>
         </div>
       </div>
@@ -117,9 +115,12 @@
 
   <section class="bg-alt">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow" data-i18n="categories.eyebrow">La boutique</span>
-        <h2 data-i18n="categories.title">Quatre univers, une même matière première : la nature</h2>
+      <div class="section-head-row reveal">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="categories.eyebrow">La boutique</span>
+          <h2 data-i18n="categories.title">Quatre univers, une même matière première : la nature</h2>
+        </div>
+        <p class="section-head-note" data-i18n="categories.note">Chaque catégorie est façonnée à la main, à l'atelier, en petite série.</p>
       </div>
       <div class="category-grid reveal" data-category-grid></div>
     </div>
@@ -127,14 +128,14 @@
 
   <section>
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow" data-i18n="featured.eyebrow">Nouveautés</span>
-        <h2 data-i18n="featured.title">Les dernières créations</h2>
-      </div>
-      <div class="product-grid reveal" data-featured-grid></div>
-      <div class="text-center mt-lg">
+      <div class="section-head-row reveal">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="featured.eyebrow">Nouveautés</span>
+          <h2 data-i18n="featured.title">Les dernières créations</h2>
+        </div>
         <a href="boutique.html" class="btn btn-outline" data-i18n="featured.cta">Voir toute la boutique</a>
       </div>
+      <div class="product-grid reveal" data-featured-grid></div>
     </div>
   </section>
 
