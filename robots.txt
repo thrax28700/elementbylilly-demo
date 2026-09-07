@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /qrcode.html
+
+Sitemap: https://elementbylilly.fr/sitemap.xml

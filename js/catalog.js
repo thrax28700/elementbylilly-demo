@@ -209,10 +209,44 @@ function renderFeatured(){
   wireProductCards(grid);
 }
 
+/* ---------- Donnees structurees (SEO) pour la boutique ---------- */
+function injectProductListSchema(){
+  if (document.querySelector('script[data-schema="product-list"]')) return;
+  const base = "https://elementbylilly.fr/";
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": PRODUCTS.map((p, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "item": {
+        "@type": "Product",
+        "name": p.name,
+        "category": t("cat." + p.category),
+        "image": base + p.image,
+        "url": base + "boutique.html?cat=" + p.category,
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": p.price,
+          "availability": "https://schema.org/InStock",
+          "url": base + "boutique.html?cat=" + p.category
+        }
+      }
+    }))
+  };
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.setAttribute("data-schema", "product-list");
+  script.textContent = JSON.stringify(schema);
+  document.head.appendChild(script);
+}
+
 /* ---------- Page boutique ---------- */
 function renderBoutique(){
   const grid = document.querySelector("[data-boutique-grid]");
   if (!grid) return;
+  injectProductListSchema();
   const params = new URLSearchParams(window.location.search);
   let activeCat = params.get("cat") || "all";
 
