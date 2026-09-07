@@ -1,6 +1,6 @@
 /* ELEMENT by Lilly — identite zen / nature (terre, eau, vegetal) */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap');
 
 :root{
   --bg: #FAF6EF;
@@ -15,7 +15,7 @@
   --sable: #E4DCC9;
   --or: #C9A66B;
   --line: #E7DECB;
-  --font-serif: 'Fraunces', Georgia, serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Jost', 'Segoe UI', sans-serif;
   --radius-lg: 26px;
   --radius-md: 16px;
@@ -269,7 +269,7 @@ section{ padding:120px 0; }
   background:linear-gradient(0deg, rgba(58,52,44,.75) 0%, rgba(58,52,44,0) 45%);
 }
 .intro-visual .signature{
-  position:absolute; z-index:1; bottom:28px; left:28px; color:#fff; font-family:var(--font-serif); font-style:italic; font-weight:400; font-size:1.9rem;
+  position:absolute; z-index:1; bottom:28px; left:28px; color:#fff; font-family:var(--font-serif); font-style:italic; font-weight:500; font-size:1.9rem;
 }
 
 /* Category cards — composition asymetrique (une grande, trois plus petites) */
