@@ -191,10 +191,7 @@ function renderHomeCategories(){
       <a class="category-card" href="boutique.html?cat=${cat}">
         <img src="${sample ? sample.image : ''}" alt="${cat}">
         <div class="overlay">
-          <div>
-            <span data-i18n="cat.${cat}">${t('cat.' + cat)}</span>
-            <h3>&nbsp;</h3>
-          </div>
+          <h3 data-i18n="cat.${cat}">${t('cat.' + cat)}</h3>
         </div>
       </a>
     `;
