@@ -163,7 +163,7 @@ const PRODUCTS = [
   },
   {
     "id": "hotel-en-bois",
-    "category": "decorations-murales",
+    "category": "decorations-a-poser",
     "name": "Hôtel en bois",
     "price": 75.0,
     "image": "assets/img/products/h-tel-en-bois.jpg"
@@ -191,4 +191,4 @@ const PRODUCTS = [
   }
 ];
 
-const CATEGORY_ORDER = ["bijoux", "decorations-a-poser", "decorations-murales", "illustrations"];
+const CATEGORY_ORDER = ["bijoux", "decorations-a-poser", "illustrations"];
