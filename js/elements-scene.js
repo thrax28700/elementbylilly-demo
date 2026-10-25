@@ -1,12 +1,12 @@
 // ELEMENT by Lilly — scene animee de l'accueil : les cinq elements prennent vie en fond.
 // Eau : bulles et houle · Terre : poussiere ocre et courbes de niveau · Bois : feuilles qui tombent
-// Vent : filets d'air · Ether : poussieres de lumiere reliees entre elles, comme un lien entre toutes choses. Au centre, l'embleme de la marque prend la couleur de l'element. Le choix d'un element pilote aussi l'ambiance sonore.
+// Air : filets d'air · Ether : poussieres de lumiere reliees entre elles, comme un lien entre toutes choses. Au centre, l'embleme de la marque prend la couleur de l'element. Le choix d'un element pilote aussi l'ambiance sonore.
 
 const ELEMENT_COLORS = {
   eau: ["#BFE3F0", "#7CB7D1"],
   terre: ["#E8C39E", "#C98E5F"],
   bois: ["#B9D3A8", "#E3C77C"],
-  vent: ["#FFFFFF", "#D7E6EE"],
+  air: ["#FFFFFF", "#D7E6EE"],
   ether: ["#E9DDFF", "#C7B2F5"],
 };
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let userChose = false;
   let visible = true;
   let pointer = { x: -9999, y: -9999 };
-  const layers = { eau: 1, terre: 0, bois: 0, vent: 0, ether: 0 };
+  const layers = { eau: 1, terre: 0, bois: 0, air: 0, ether: 0 };
   const particles = [];
   const COUNT = window.innerWidth < 700 ? 45 : 85;
 
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       case "eau": p.x = rand(0, W); p.y = initial ? rand(0, H) : H + 10; p.vx = 0; p.vy = rand(-0.9, -0.35); p.r = rand(1.5, 6); break;
       case "ether": p.x = rand(0, W); p.y = rand(0, H); p.vx = rand(-0.35, 0.35); p.vy = rand(-0.35, 0.35); p.r = rand(1, 2.4); break;
       case "bois": p.x = rand(0, W); p.y = initial ? rand(0, H) : -20; p.vx = rand(-0.3, 0.3); p.vy = rand(0.4, 1.0); p.r = rand(4, 9); break;
-      case "vent": p.x = initial ? rand(0, W) : -60; p.y = rand(0, H); p.vx = rand(2.2, 4.5); p.vy = 0; p.r = rand(30, 90); break;
+      case "air": p.x = initial ? rand(0, W) : -60; p.y = rand(0, H); p.vx = rand(2.2, 4.5); p.vy = 0; p.r = rand(30, 90); break;
       default: p.x = rand(0, W); p.y = rand(0, H); p.vx = rand(-0.25, 0.25); p.vy = rand(-0.15, 0.15); p.r = rand(0.8, 2.4);
     }
   }
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (p.mode === "eau") p.x += Math.sin(p.phase) * 0.4;
     if (p.mode === "bois") { p.x += Math.sin(p.phase) * 0.8; p.rot += p.spin; }
     if (p.mode === "ether") { p.x += Math.cos(p.phase) * 0.25; p.y += Math.sin(p.phase) * 0.25; }
-    if (p.mode === "vent") p.y += Math.sin(p.phase) * 0.4;
+    if (p.mode === "air") p.y += Math.sin(p.phase) * 0.4;
     // Le pointeur ecarte doucement les particules
     const dx = p.x - pointer.x, dy = p.y - pointer.y;
     const d2 = dx * dx + dy * dy;
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.beginPath(); ctx.ellipse(0, 0, p.r, p.r * 0.42, 0, 0, Math.PI * 2); ctx.fill();
         ctx.restore();
         break;
-      case "vent":
+      case "air":
         ctx.strokeStyle = p.color; ctx.lineWidth = 1; ctx.globalAlpha = a * 0.5;
         ctx.beginPath(); ctx.moveTo(p.x - p.r, p.y);
         ctx.quadraticCurveTo(p.x - p.r / 2, p.y - 6 * Math.sin(p.phase), p.x, p.y);
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Les symboles de l'embleme sont aussi cliquables
   emblemSymbols.forEach(g => g.addEventListener("click", () => {
     userChose = true;
-    setActiveElement(g.getAttribute("class").match(/emb-(eau|terre|bois|vent|ether)/)[1], "hero");
+    setActiveElement(g.getAttribute("class").match(/emb-(eau|terre|bois|air|ether)/)[1], "hero");
   }));
 
   // Tant que le visiteur n'a rien choisi, les elements se succedent lentement

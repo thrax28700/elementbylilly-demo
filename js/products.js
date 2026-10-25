@@ -44,7 +44,7 @@ const PRODUCTS = [
     "image": "assets/img/products/navire-en-bois-flott.jpg",
     "elements": [
       "bois",
-      "vent"
+      "air"
     ]
   },
   {
@@ -88,7 +88,7 @@ const PRODUCTS = [
     "image": "assets/img/products/village-de-p-cheurs-en-bois-flott.jpg",
     "elements": [
       "bois",
-      "vent"
+      "air"
     ]
   },
   {
@@ -99,7 +99,7 @@ const PRODUCTS = [
     "image": "assets/img/products/voilier-en-bois-flott-et-voile-en-toile-de-lin.jpg",
     "elements": [
       "bois",
-      "vent"
+      "air"
     ]
   },
   {
@@ -120,7 +120,7 @@ const PRODUCTS = [
     "price": 210,
     "image": "assets/img/products/insouciance.jpg",
     "elements": [
-      "vent",
+      "air",
       "terre",
       "ether"
     ]
@@ -143,7 +143,7 @@ const PRODUCTS = [
     "price": 210,
     "image": "assets/img/products/r-silience.jpg",
     "elements": [
-      "vent",
+      "air",
       "eau",
       "ether"
     ]
@@ -166,7 +166,7 @@ const PRODUCTS = [
     "image": "assets/img/products/boucles-d-oreilles-cr-ole-boh-mian.jpg",
     "elements": [
       "terre",
-      "vent"
+      "air"
     ]
   },
   {
@@ -230,7 +230,7 @@ const PRODUCTS = [
     "image": "assets/img/products/boucles-d-oreilles-fleur-de-marbre-bleu.jpg",
     "elements": [
       "eau",
-      "vent"
+      "air"
     ]
   },
   {
@@ -285,7 +285,7 @@ const PRODUCTS = [
     "image": "assets/img/products/boucles-d-oreilles-ros-e-du-matin.jpg",
     "elements": [
       "terre",
-      "vent"
+      "air"
     ]
   },
   {
@@ -326,4 +326,4 @@ const PRODUCTS = [
 const CATEGORY_ORDER = ["decorations-a-poser", "illustrations", "bijoux"];
 
 // Les cinq elements de la marque — chaque creation est rattachee a ceux qui l'ont inspiree
-const ELEMENT_ORDER = ["eau", "terre", "bois", "vent", "ether"];
+const ELEMENT_ORDER = ["eau", "terre", "bois", "air", "ether"];

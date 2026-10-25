@@ -1,6 +1,6 @@
 // ELEMENT by Lilly — ambiance sonore douce, generee en direct dans le navigateur (Web Audio).
 // Aucun fichier audio, aucun droit d'auteur : des nappes lentes, quelques notes de cristal,
-// et une texture propre a chaque element (eau, terre, bois, vent, ether).
+// et une texture propre a chaque element (eau, terre, bois, air, ether).
 // Active par defaut : elle demarre des que le navigateur l'autorise (souvent au premier clic ou a la
 // premiere touche, les navigateurs bloquant le son sans geste du visiteur). Le bouton permet de la couper,
 // et ce choix est memorise d'une page a l'autre.
@@ -107,13 +107,13 @@ const Ambiance = (() => {
     lfo(0.09, 0.45, eauSwell.gain);
     textures.eau = { bus: eau, level: 0.5 };
 
-    // Vent : souffle filtre qui balaie lentement les frequences
-    const vent = textureBus();
-    const ventBp = ctx.createBiquadFilter();
-    ventBp.type = "bandpass"; ventBp.frequency.value = 700; ventBp.Q.value = 1.4;
-    loopNoise(false).connect(ventBp).connect(vent);
-    lfo(0.05, 420, ventBp.frequency);
-    textures.vent = { bus: vent, level: 0.09 };
+    // Air : souffle filtre qui balaie lentement les frequences
+    const air = textureBus();
+    const airBp = ctx.createBiquadFilter();
+    airBp.type = "bandpass"; airBp.frequency.value = 700; airBp.Q.value = 1.4;
+    loopNoise(false).connect(airBp).connect(air);
+    lfo(0.05, 420, airBp.frequency);
+    textures.air = { bus: air, level: 0.09 };
 
     // Terre : bourdon tres grave (re et la), presque ressenti plus qu'entendu
     const terre = textureBus();

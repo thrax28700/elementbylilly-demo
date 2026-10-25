@@ -18,8 +18,8 @@ const CAT = {
   "decorations-a-poser": { label: "Décorations à poser", alt: "décoration faite main" },
   "illustrations": { label: "Illustrations", alt: "dessin original encadré d'Émilie" },
 };
-const EL = { eau: "l'eau", terre: "la terre", bois: "le bois", vent: "le vent", ether: "l'éther" };
-const EL_LABEL = { eau: "Eau", terre: "Terre", bois: "Bois", vent: "Vent", ether: "Éther" };
+const EL = { eau: "l'eau", terre: "la terre", bois: "le bois", air: "l'air", ether: "l'éther" };
+const EL_LABEL = { eau: "Eau", terre: "Terre", bois: "Bois", air: "Air", ether: "Éther" };
 
 const slug = (p) => p.id.replace(/-1$/, "");
 const url = (p) => `creations/${slug(p)}.html`;

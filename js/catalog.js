@@ -232,7 +232,7 @@ const ELEMENT_ART = {
   eau: '<path d="M32 6s9 10 9 16a9 9 0 0 1-18 0c0-6 9-16 9-16Z"/><path d="M28 21a4 4 0 0 0 3 4"/><path d="M4 42c5-5 9-5 14 0s9 5 14 0 9-5 14 0 9 5 14 0"/><path d="M4 52c5-5 9-5 14 0s9 5 14 0 9-5 14 0 9 5 14 0"/>',
   terre: '<path d="M4 54 22 24l10 15 8-11 20 26Z"/><path d="M17 32l5-8 5 8-5-2Z"/><circle cx="48" cy="13" r="6"/><path d="M48 3v2M58 13h-2M41 6l1.5 1.5M55 6l-1.5 1.5"/><path d="M2 54h60"/>',
   bois: '<path d="M32 6c10 0 17 7 17 15 0 7-6 12-12 12H27c-6 0-12-5-12-12 0-8 7-15 17-15Z"/><path d="M32 58V24M32 38l-8-6M32 44l9-7"/><path d="M22 58c4-2 7-2 10 0 3-2 6-2 10 0"/>',
-  vent: '<path d="M4 22h30a7 7 0 1 0-7-7"/><path d="M4 32h44a7 7 0 1 1-7 7"/><path d="M4 42h22"/><path d="M48 12c6-1 10 2 11 8-6 1-10-2-11-8Z"/><path d="M50 14l7 5"/>',
+  air: '<path d="M4 22h30a7 7 0 1 0-7-7"/><path d="M4 32h44a7 7 0 1 1-7 7"/><path d="M4 42h22"/><path d="M48 12c6-1 10 2 11 8-6 1-10-2-11-8Z"/><path d="M50 14l7 5"/>',
   ether: '<path d="M32 10c1.6 10 9.8 18.2 20 20-10.2 1.8-18.4 10-20 20-1.6-10-9.8-18.2-20-20 10.2-1.8 18.4-10 20-20Z"/><circle cx="32" cy="30" r="25" stroke-dasharray="2 5"/><circle cx="52" cy="10" r="2"/><circle cx="12" cy="52" r="2"/><circle cx="54" cy="50" r="1.4"/>',
 };
 
@@ -385,9 +385,25 @@ function renderBoutique(){
     `).join("");
   }
 
+  // Une section par categorie, chacune avec son titre, son texte et sa propre grille
   function draw(){
-    const items = productsByCategory(activeCat).filter(p => !activeEl || p.elements.includes(activeEl));
-    grid.innerHTML = items.length ? items.map(productCardHTML).join("") : `<p class="text-center" style="grid-column:1/-1">${t('boutique.empty')}</p>`;
+    const cats = activeCat === "all" ? CATEGORY_ORDER : [activeCat];
+    const sections = cats.map(cat => {
+      const items = productsByCategory(cat).filter(p => !activeEl || p.elements.includes(activeEl));
+      if (!items.length) return "";
+      return `
+        <section class="shop-section" id="${cat}">
+          <header class="shop-section-head">
+            <div>
+              <span class="shop-section-count">${t('craft.count').replace('{n}', items.length)}</span>
+              <h2><span class="shop-section-dot shop-dot-${cat}"></span>${t('cat.' + cat)}</h2>
+            </div>
+            <p>${t('shop.intro.' + cat)}</p>
+          </header>
+          <div class="product-grid">${items.map(productCardHTML).join("")}</div>
+        </section>`;
+    }).join("");
+    grid.innerHTML = sections || `<p class="text-center">${t('boutique.empty')}</p>`;
     wireProductCards(grid);
     updateSelectionUI();
   }
