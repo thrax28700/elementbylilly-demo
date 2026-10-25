@@ -63,4 +63,22 @@ assets/img/products/  → 27 photos produits (optimisées, ~1,3 Mo au total)
 assets/img/site/      → logo et icônes
 ```
 
-Pour ajouter/modifier un produit plus tard : éditer `js/products.js` (nom, prix, catégorie, image dans `assets/img/products/`).
+Pour ajouter/modifier un produit plus tard : éditer `js/products.js` (nom, prix, catégorie, éléments, image dans `assets/img/products/`), puis lancer `node outils/generer-fiches.js` : cela régénère les fiches `creations/*.html` et le `sitemap.xml`.
+
+## 6. Référencement (SEO)
+
+**Déjà fait dans le site**
+- Titres et descriptions de pages ciblés : bijoux fait main, bois flotté, dessins, près de Chartres / Eure-et-Loir.
+- Une fiche par création (`creations/`), avec données structurées Produit (prix, image, fil d'Ariane) : chaque pièce peut sortir seule dans Google et Google Images.
+- Données structurées de l'atelier (Saint-Georges-sur-Eure, 28190, zone Chartres / Eure-et-Loir) et d'Émilie.
+- Textes alternatifs descriptifs sur les images, sitemap avec images.
+- Vocabulaire : « artisane créatrice », « fait main ». Le titre « artisan » seul est réservé aux inscrits à la Chambre de Métiers et de l'Artisanat ; s'inscrire au Répertoire des Métiers permettrait de l'utiliser.
+
+**Le SEO ne compte vraiment qu'une fois le site sur elementbylilly.fr.** L'adresse github.io est une démo : toutes les balises pointent déjà vers elementbylilly.fr.
+
+**Le plus efficace se passe hors du site (à faire par Émilie)**
+1. **Fiche Google Business Profile** (gratuite) : catégorie « Créateur de bijoux » / « Artisan », adresse masquée, zone desservie Chartres + Eure-et-Loir, photos des créations, lien vers le site. C'est ce qui la fait apparaître sur Google Maps et dans les recherches « près de moi ».
+2. **Avis clients** sur cette fiche Google : demander à chaque cliente satisfaite.
+3. **Google Search Console** : déclarer elementbylilly.fr et envoyer `sitemap.xml`.
+4. **Liens vers son site** : office de tourisme de Chartres, marchés et salons de créateurs d'Eure-et-Loir, boutiques de créateurs à Chartres, presse locale (L'Écho Républicain), Etsy, Instagram et Pinterest (un lien par épingle vers la fiche de la création).
+5. **Publier régulièrement** : chaque nouvelle création = une nouvelle fiche (relancer le générateur).

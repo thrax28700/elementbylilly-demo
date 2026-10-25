@@ -5,6 +5,16 @@ function formatPrice(n){
   return new Intl.NumberFormat(lang === "en" ? "en-IE" : lang === "es" ? "es-ES" : "fr-FR", { style: "currency", currency: "EUR" }).format(n);
 }
 
+// Adresse de la fiche detaillee d'une creation (pages generees par outils/generer-fiches.js)
+function productUrl(p){ return "creations/" + p.id.replace(/-1$/, "") + ".html"; }
+
+// Texte alternatif descriptif, utile a Google Images comme aux lecteurs d'ecran
+function productAlt(p){
+  if (p.category === "bijoux") return p.name + ", boucles d'oreilles faites main en argile";
+  if (p.category === "illustrations") return p.name + ", dessin original encadré d'Émilie";
+  return p.name + ", décoration faite main";
+}
+
 function productsByCategory(cat){
   return PRODUCTS.filter(p => cat === "all" ? true : p.category === cat);
 }
@@ -102,13 +112,13 @@ function productCardHTML(p){
   return `
     <div class="product-card" data-product-id="${p.id}" data-category="${p.category}">
       <div class="product-media">
-        <img src="${p.image}" alt="${p.name}" loading="lazy">
+        <img src="${p.image}" alt="${productAlt(p)}" loading="lazy">
         <button class="product-quick" data-quickview-id="${p.id}" aria-label="${t('product.quickview')}">
           <span class="ms" aria-hidden="true">visibility</span>
         </button>
       </div>
       <span class="product-cat" data-i18n="cat.${p.category}">${t('cat.' + p.category)}</span>
-      <h3 class="product-title">${p.name}</h3>
+      <h3 class="product-title"><a href="${productUrl(p)}">${p.name}</a></h3>
       <div class="product-price">${formatPrice(p.price)}</div>
     </div>
   `;
@@ -122,7 +132,10 @@ function wireProductCards(container){
     });
   });
   container.querySelectorAll(".product-card").forEach(card => {
-    card.addEventListener("click", () => openQuickView(card.getAttribute("data-product-id")));
+    card.addEventListener("click", (e) => {
+      if (e.target.closest("a")) return;
+      openQuickView(card.getAttribute("data-product-id"));
+    });
   });
 }
 
@@ -142,6 +155,7 @@ function ensureModal(){
         <button class="btn btn-primary" data-modal-add>
           <span data-add-label>${t('product.add')}</span>
         </button>
+        <a class="modal-page-link" data-modal-page href="#">${t('product.page')}</a>
         <p class="modal-note">${t('product.note')}</p>
       </div>
     </div>
@@ -157,7 +171,8 @@ function openQuickView(id){
   ensureModal();
   const overlay = document.querySelector(".modal-overlay");
   overlay.querySelector(".modal-media img").src = p.image;
-  overlay.querySelector(".modal-media img").alt = p.name;
+  overlay.querySelector(".modal-media img").alt = productAlt(p);
+  overlay.querySelector("[data-modal-page]").href = productUrl(p);
   overlay.querySelector(".product-cat").textContent = t("cat." + p.category);
   overlay.querySelector(".modal-body .product-title").textContent = p.name;
   overlay.querySelector(".modal-price").textContent = formatPrice(p.price);
@@ -193,7 +208,7 @@ function renderCrafts(){
     return `
       <article class="craft ${i % 2 ? 'craft-reverse' : ''} reveal">
         <div class="craft-media">
-          ${imgs.map((p, k) => `<button type="button" class="craft-img craft-img-${k}" data-quickview-id="${p.id}" aria-label="${p.name}"><img src="${p.image}" alt="${p.name}" loading="lazy"></button>`).join("")}
+          ${imgs.map((p, k) => `<button type="button" class="craft-img craft-img-${k}" data-quickview-id="${p.id}" aria-label="${p.name}"><img src="${p.image}" alt="${productAlt(p)}" loading="lazy"></button>`).join("")}
         </div>
         <div class="craft-body">
           <span class="craft-num">0${i + 1}</span>
@@ -260,13 +275,14 @@ function renderGallery(){
   const strip = document.querySelector("[data-gallery]");
   if (!strip) return;
   strip.innerHTML = PRODUCTS.map(p => `
-    <button type="button" class="gallery-item" data-quickview-id="${p.id}">
-      <img src="${p.image}" alt="${p.name}" loading="lazy" draggable="false">
+    <a class="gallery-item" href="${productUrl(p)}" data-quickview-id="${p.id}" draggable="false">
+      <img src="${p.image}" alt="${productAlt(p)}" loading="lazy" draggable="false">
       <span class="gallery-caption"><strong>${p.name}</strong><span>${formatPrice(p.price)}</span></span>
-    </button>
+    </a>
   `).join("");
   strip.querySelectorAll("[data-quickview-id]").forEach(btn => btn.addEventListener("click", (e) => {
-    if (strip.dataset.dragged === "1") { e.preventDefault(); return; }
+    e.preventDefault();
+    if (strip.dataset.dragged === "1") return;
     openQuickView(btn.getAttribute("data-quickview-id"));
   }));
   if (strip.dataset.wired) return;
@@ -327,13 +343,13 @@ function injectProductListSchema(){
         "name": p.name,
         "category": t("cat." + p.category),
         "image": base + p.image,
-        "url": base + "boutique.html?cat=" + p.category,
+        "url": base + productUrl(p),
         "offers": {
           "@type": "Offer",
           "priceCurrency": "EUR",
           "price": p.price,
           "availability": "https://schema.org/InStock",
-          "url": base + "boutique.html?cat=" + p.category
+          "url": base + productUrl(p)
         }
       }
     }))
@@ -415,6 +431,7 @@ function renderBoutique(){
 document.addEventListener("DOMContentLoaded", () => {
   renderHome();
   renderBoutique();
+  document.querySelectorAll("[data-page-add]").forEach(btn => btn.addEventListener("click", () => toggleSelection(btn.getAttribute("data-add-id"))));
   wireSelectionPanel();
   document.addEventListener("langchange", () => {
     renderMarquee();

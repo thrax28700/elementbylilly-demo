@@ -1,11 +1,11 @@
 // ELEMENT by Lilly — traductions FR / EN / ES
 const I18N = {
   fr: {
-    "meta.home.title": "ELEMENT by Lilly — Décoration artisanale inspirée de la nature",
-    "meta.home.desc": "Bijoux, décorations et illustrations façonnés à la main par Émilie, à partir de bois, lin, liège et argile.",
-    "meta.boutique.title": "Boutique — ELEMENT by Lilly",
-    "meta.histoire.title": "Notre histoire — ELEMENT by Lilly",
-    "meta.contact.title": "Contact — ELEMENT by Lilly",
+    "meta.home.title": "Bijoux fait main et bois flotté près de Chartres | ELEMENT by Lilly",
+    "meta.home.desc": "Émilie, artisane créatrice à Saint-Georges-sur-Eure près de Chartres (28), façonne à la main des boucles d'oreilles en argile, des décorations en bois flotté et des dessins originaux. Pièces uniques.",
+    "meta.boutique.title": "Boucles d'oreilles fait main et décorations en bois flotté | ELEMENT by Lilly",
+    "meta.histoire.title": "Émilie, artisane créatrice près de Chartres | ELEMENT by Lilly",
+    "meta.contact.title": "Contact et création sur-mesure près de Chartres | ELEMENT by Lilly",
     "meta.qr.title": "Générateur de QR code — ELEMENT by Lilly",
 
     "nav.home": "Accueil",
@@ -20,12 +20,12 @@ const I18N = {
     "cat.illustrations": "Illustrations",
     "cat.all": "Tout voir",
 
-    "hero.eyebrow": "L'univers d'Émilie · fait main",
+    "hero.eyebrow": "Bijoux, bois flotté et dessins faits main · près de Chartres",
     "hero.title.pre": "Quand",
     "hero.title.script": "l'art",
     "hero.title.mid": "brise",
     "hero.title.line3": "les frontières",
-    "hero.lead": "Bijoux, bois flotté et dessins : Émilie façonne à la main des pièces uniques, chacune née de l'un des cinq éléments.",
+    "hero.lead": "Dans son atelier près de Chartres, Émilie façonne à la main des pièces uniques, chacune née de l'un des cinq éléments.",
     "hero.cta.shop": "Explorer la boutique",
     "hero.cta.story": "Découvrir l'histoire",
     "hero.cta.sound": "Écouter l'ambiance",
@@ -75,14 +75,15 @@ const I18N = {
     "contact-teaser.cta": "Écrire un message",
 
     "boutique.eyebrow": "Catalogue complet",
-    "boutique.title": "La boutique",
-    "boutique.lead": "Chaque pièce est unique et fabriquée à la main en petite série. Les prix affichés reprennent ceux de la boutique actuelle.",
+    "boutique.title": "Bijoux et décorations faits main",
+    "boutique.lead": "Boucles d'oreilles en argile, décorations en bois flotté et dessins originaux : chaque pièce est unique, façonnée à la main par Émilie dans son atelier d'Eure-et-Loir.",
     "boutique.empty": "Aucun article dans cette catégorie pour le moment.",
 
     "product.quickview": "Aperçu rapide",
     "product.add": "Ajouter à ma sélection",
     "product.added": "Ajouté ✓",
     "product.note": "Cette boutique est une démonstration : pour commander, envoyez votre sélection via le formulaire de contact — aucun paiement n'est demandé ici.",
+    "product.page": "Voir la fiche complète",
 
     "selection.title": "Ma sélection",
     "selection.empty": "Votre sélection est vide pour le moment. Parcourez la boutique et ajoutez les pièces qui vous plaisent.",
@@ -92,7 +93,7 @@ const I18N = {
 
     "bio.eyebrow": "Notre histoire",
     "bio.title": "Quand la création devient thérapeutique",
-    "bio.p1": "ELEMENT by Lilly est une marque née de la sensibilité profonde et de la passion pour la beauté authentique de la nature.",
+    "bio.p1": "ELEMENT by Lilly est la marque d'Émilie, artisane créatrice installée à Saint-Georges-sur-Eure, près de Chartres. Bijoux en argile, décorations en bois flotté, dessins : tout naît de sa sensibilité profonde et de sa passion pour la beauté authentique de la nature.",
     "bio.p2": "Créée par une artiste hypersensible, chaque création est un hommage aux détails minutieux et à l'esthétisme artisanal, où chaque élément est façonné avec soin et amour. Inspirée par l'alchimie du vivant, la marque puise dans les forces et les trésors que la nature nous offre, célébrant la connexion intime entre les éléments qui composent notre monde.",
     "bio.p3": "À travers ELEMENT by Lilly, se déploie un univers où le respect du vivant et la magie des transformations naturelles prennent vie dans chaque pièce.",
     "bio.p4": "Cette marque incarne une quête perpétuelle d'harmonie, un dialogue poétique entre la matière, la lumière et les formes organiques, révélant la beauté fragile et précieuse de notre environnement.",
@@ -113,7 +114,7 @@ const I18N = {
     "contact.submit": "Envoyer le message",
     "contact.sent": "Votre client mail va s'ouvrir avec votre message pré-rempli — vérifiez puis envoyez-le.",
     "contact.info.title": "Retrouvez-nous",
-    "contact.info.text": "Basée en France, ELEMENT by Lilly crée depuis son atelier, entourée de bois flotté et de matières naturelles.",
+    "contact.info.text": "ELEMENT by Lilly crée depuis son atelier de Saint-Georges-sur-Eure, près de Chartres (Eure-et-Loir), entourée de bois flotté et de matières naturelles. Remise en main propre possible dans le secteur de Chartres.",
     "contact.info.follow": "Suivre l'atelier",
 
     "qr.eyebrow": "Outil",
@@ -125,7 +126,7 @@ const I18N = {
     "qr.download.svg": "Télécharger en SVG",
     "qr.placeholder": "https://elementbylilly.fr",
 
-    "footer.tagline": "Décoration, bijoux et illustrations inspirés par les éléments de la nature.",
+    "footer.tagline": "Bijoux, décorations en bois flotté et dessins faits main par Émilie, près de Chartres (28).",
     "footer.nav": "Navigation",
     "footer.follow": "Nous suivre",
     "footer.legal": "Site vitrine de démonstration",
@@ -138,11 +139,11 @@ const I18N = {
   },
 
   en: {
-    "meta.home.title": "ELEMENT by Lilly — Handmade nature-inspired decor",
-    "meta.home.desc": "Jewelry, home decor and illustrations handmade by Émilie, using wood, linen, cork and clay.",
-    "meta.boutique.title": "Shop — ELEMENT by Lilly",
-    "meta.histoire.title": "Our story — ELEMENT by Lilly",
-    "meta.contact.title": "Contact — ELEMENT by Lilly",
+    "meta.home.title": "Handmade jewelry and driftwood art near Chartres | ELEMENT by Lilly",
+    "meta.home.desc": "Émilie, a maker based in Saint-Georges-sur-Eure near Chartres, France, handcrafts clay earrings, driftwood decor and original drawings. One-of-a-kind pieces.",
+    "meta.boutique.title": "Handmade earrings and driftwood decor | ELEMENT by Lilly",
+    "meta.histoire.title": "Émilie, maker near Chartres | ELEMENT by Lilly",
+    "meta.contact.title": "Contact and custom pieces | ELEMENT by Lilly",
     "meta.qr.title": "QR code generator — ELEMENT by Lilly",
 
     "nav.home": "Home",
@@ -157,12 +158,12 @@ const I18N = {
     "cat.illustrations": "Illustrations",
     "cat.all": "View all",
 
-    "hero.eyebrow": "Émilie's world · handmade",
+    "hero.eyebrow": "Handmade jewelry, driftwood & drawings · near Chartres, France",
     "hero.title.pre": "When",
     "hero.title.script": "art",
     "hero.title.mid": "breaks",
     "hero.title.line3": "boundaries",
-    "hero.lead": "Jewelry, driftwood and drawings: Émilie handcrafts one-of-a-kind pieces, each born from one of the five elements.",
+    "hero.lead": "In her workshop near Chartres, Émilie handcrafts one-of-a-kind pieces, each born from one of the five elements.",
     "hero.cta.shop": "Explore the shop",
     "hero.cta.story": "Discover our story",
     "hero.cta.sound": "Listen to the ambience",
@@ -212,14 +213,15 @@ const I18N = {
     "contact-teaser.cta": "Send a message",
 
     "boutique.eyebrow": "Full catalogue",
-    "boutique.title": "The shop",
-    "boutique.lead": "Every piece is unique and handmade in small batches. Prices shown match the current shop.",
+    "boutique.title": "Handmade jewelry and decor",
+    "boutique.lead": "Clay earrings, driftwood decor and original drawings: every piece is unique, handmade by Émilie in her workshop in Eure-et-Loir, France.",
     "boutique.empty": "No item in this category yet.",
 
     "product.quickview": "Quick view",
     "product.add": "Add to my selection",
     "product.added": "Added ✓",
     "product.note": "This shop is a demo: to order, send your selection through the contact form — no payment is requested here.",
+    "product.page": "See the full details",
 
     "selection.title": "My selection",
     "selection.empty": "Your selection is empty. Browse the shop and add the pieces you like.",
@@ -229,7 +231,7 @@ const I18N = {
 
     "bio.eyebrow": "Our story",
     "bio.title": "When creating becomes therapeutic",
-    "bio.p1": "ELEMENT by Lilly is a brand born from deep sensitivity and a passion for the authentic beauty of nature.",
+    "bio.p1": "ELEMENT by Lilly is the brand of Émilie, a maker based in Saint-Georges-sur-Eure, near Chartres. Clay jewelry, driftwood decor, drawings: everything comes from her deep sensitivity and her passion for the authentic beauty of nature.",
     "bio.p2": "Created by a highly sensitive artist, each piece pays tribute to fine detail and artisanal craftsmanship, where every element is shaped with care and love. Inspired by the alchemy of living things, the brand draws on the strength and treasures nature offers, celebrating the intimate connection between the elements that make up our world.",
     "bio.p3": "Through ELEMENT by Lilly unfolds a world where respect for the living and the magic of natural transformation come alive in every piece.",
     "bio.p4": "This brand embodies an ongoing quest for harmony, a poetic dialogue between matter, light and organic forms, revealing the fragile, precious beauty of our environment.",
@@ -250,7 +252,7 @@ const I18N = {
     "contact.submit": "Send message",
     "contact.sent": "Your mail app will open with your pre-filled message — review it and hit send.",
     "contact.info.title": "Find us",
-    "contact.info.text": "Based in France, ELEMENT by Lilly creates from her workshop, surrounded by driftwood and natural materials.",
+    "contact.info.text": "ELEMENT by Lilly creates from its workshop in Saint-Georges-sur-Eure, near Chartres (Eure-et-Loir, France), surrounded by driftwood and natural materials.",
     "contact.info.follow": "Follow the workshop",
 
     "qr.eyebrow": "Tool",
@@ -262,7 +264,7 @@ const I18N = {
     "qr.download.svg": "Download as SVG",
     "qr.placeholder": "https://elementbylilly.fr",
 
-    "footer.tagline": "Decor, jewelry and illustrations inspired by the elements of nature.",
+    "footer.tagline": "Jewelry, driftwood decor and drawings handmade by Émilie, near Chartres, France.",
     "footer.nav": "Navigation",
     "footer.follow": "Follow us",
     "footer.legal": "Demo showcase site",
@@ -275,11 +277,11 @@ const I18N = {
   },
 
   es: {
-    "meta.home.title": "ELEMENT by Lilly — Decoración artesanal inspirada en la naturaleza",
-    "meta.home.desc": "Joyas, decoración e ilustraciones hechas a mano por Émilie, con madera, lino, corcho y arcilla.",
-    "meta.boutique.title": "Tienda — ELEMENT by Lilly",
-    "meta.histoire.title": "Nuestra historia — ELEMENT by Lilly",
-    "meta.contact.title": "Contacto — ELEMENT by Lilly",
+    "meta.home.title": "Joyas hechas a mano y madera flotante cerca de Chartres | ELEMENT by Lilly",
+    "meta.home.desc": "Émilie, creadora en Saint-Georges-sur-Eure cerca de Chartres (Francia), hace a mano pendientes de arcilla, decoración de madera flotante y dibujos originales. Piezas únicas.",
+    "meta.boutique.title": "Pendientes hechos a mano y decoración de madera flotante | ELEMENT by Lilly",
+    "meta.histoire.title": "Émilie, creadora cerca de Chartres | ELEMENT by Lilly",
+    "meta.contact.title": "Contacto y piezas a medida | ELEMENT by Lilly",
     "meta.qr.title": "Generador de códigos QR — ELEMENT by Lilly",
 
     "nav.home": "Inicio",
@@ -294,12 +296,12 @@ const I18N = {
     "cat.illustrations": "Ilustraciones",
     "cat.all": "Ver todo",
 
-    "hero.eyebrow": "El universo de Émilie · hecho a mano",
+    "hero.eyebrow": "Joyas, madera flotante y dibujos hechos a mano · cerca de Chartres",
     "hero.title.pre": "Cuando",
     "hero.title.script": "el arte",
     "hero.title.mid": "rompe",
     "hero.title.line3": "fronteras",
-    "hero.lead": "Joyas, madera flotante y dibujos: Émilie crea a mano piezas únicas, cada una nacida de uno de los cinco elementos.",
+    "hero.lead": "En su taller cerca de Chartres, Émilie crea a mano piezas únicas, cada una nacida de uno de los cinco elementos.",
     "hero.cta.shop": "Explorar la tienda",
     "hero.cta.story": "Descubrir la historia",
     "hero.cta.sound": "Escuchar el ambiente",
@@ -349,14 +351,15 @@ const I18N = {
     "contact-teaser.cta": "Enviar un mensaje",
 
     "boutique.eyebrow": "Catálogo completo",
-    "boutique.title": "La tienda",
-    "boutique.lead": "Cada pieza es única y hecha a mano en pequeñas series. Los precios mostrados corresponden a la tienda actual.",
+    "boutique.title": "Joyas y decoración hechas a mano",
+    "boutique.lead": "Pendientes de arcilla, decoración de madera flotante y dibujos originales: cada pieza es única, hecha a mano por Émilie en su taller de Eure-et-Loir (Francia).",
     "boutique.empty": "Todavía no hay artículos en esta categoría.",
 
     "product.quickview": "Vista rápida",
     "product.add": "Añadir a mi selección",
     "product.added": "Añadido ✓",
     "product.note": "Esta tienda es una demostración: para pedir, envíe su selección mediante el formulario de contacto — aquí no se solicita ningún pago.",
+    "product.page": "Ver la ficha completa",
 
     "selection.title": "Mi selección",
     "selection.empty": "Tu selección está vacía. Explora la tienda y añade las piezas que te gusten.",
@@ -366,7 +369,7 @@ const I18N = {
 
     "bio.eyebrow": "Nuestra historia",
     "bio.title": "Cuando crear se vuelve terapéutico",
-    "bio.p1": "ELEMENT by Lilly es una marca nacida de una sensibilidad profunda y de la pasión por la belleza auténtica de la naturaleza.",
+    "bio.p1": "ELEMENT by Lilly es la marca de Émilie, creadora instalada en Saint-Georges-sur-Eure, cerca de Chartres. Joyas de arcilla, decoración de madera flotante, dibujos: todo nace de su sensibilidad profunda y de su pasión por la belleza auténtica de la naturaleza.",
     "bio.p2": "Creada por una artista altamente sensible, cada creación es un homenaje al detalle minucioso y a la estética artesanal, donde cada elemento se moldea con cuidado y amor. Inspirada por la alquimia de lo vivo, la marca se nutre de las fuerzas y los tesoros que la naturaleza nos ofrece, celebrando la conexión íntima entre los elementos que componen nuestro mundo.",
     "bio.p3": "A través de ELEMENT by Lilly se despliega un universo donde el respeto por lo vivo y la magia de las transformaciones naturales cobran vida en cada pieza.",
     "bio.p4": "Esta marca encarna una búsqueda perpetua de armonía, un diálogo poético entre la materia, la luz y las formas orgánicas, revelando la belleza frágil y preciosa de nuestro entorno.",
@@ -387,7 +390,7 @@ const I18N = {
     "contact.submit": "Enviar mensaje",
     "contact.sent": "Se abrirá tu cliente de correo con el mensaje ya redactado — revísalo y envíalo.",
     "contact.info.title": "Encuéntranos",
-    "contact.info.text": "Con sede en Francia, ELEMENT by Lilly crea desde su taller, rodeada de madera flotante y materiales naturales.",
+    "contact.info.text": "ELEMENT by Lilly crea desde su taller de Saint-Georges-sur-Eure, cerca de Chartres (Eure-et-Loir, Francia), rodeada de madera flotante y materiales naturales.",
     "contact.info.follow": "Seguir el taller",
 
     "qr.eyebrow": "Herramienta",
@@ -399,7 +402,7 @@ const I18N = {
     "qr.download.svg": "Descargar en SVG",
     "qr.placeholder": "https://elementbylilly.fr",
 
-    "footer.tagline": "Decoración, joyas e ilustraciones inspiradas en los elementos de la naturaleza.",
+    "footer.tagline": "Joyas, decoración de madera flotante y dibujos hechos a mano por Émilie, cerca de Chartres (Francia).",
     "footer.nav": "Navegación",
     "footer.follow": "Síguenos",
     "footer.legal": "Sitio de demostración",
