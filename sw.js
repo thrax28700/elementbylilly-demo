@@ -1,5 +1,5 @@
 // ELEMENT by Lilly — service worker (cache basique pour usage hors-ligne / installation PWA)
-const CACHE_NAME = "ebl-cache-v13";
+const CACHE_NAME = "ebl-cache-v14";
 const CORE_ASSETS = [
   "index.html",
   "boutique.html",
@@ -35,20 +35,20 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
+// Reseau d'abord : on sert toujours la derniere version en ligne, le cache ne sert qu'hors connexion.
+// (Le cache d'abord melangeait d'anciens fichiers avec les nouveaux apres une mise a jour.)
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  if (new URL(event.request.url).origin !== self.location.origin) return;
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      const network = fetch(event.request)
-        .then((response) => {
-          if (response && response.status === 200 && response.type === "basic") {
-            const clone = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-          }
-          return response;
-        })
-        .catch(() => cached);
-      return cached || network;
-    })
+    fetch(event.request)
+      .then((response) => {
+        if (response && response.status === 200 && response.type === "basic") {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        }
+        return response;
+      })
+      .catch(() => caches.match(event.request))
   );
 });
