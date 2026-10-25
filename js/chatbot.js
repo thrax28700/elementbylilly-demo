@@ -15,7 +15,7 @@ const CHAT_KB = {
         id: "inspiration",
         label: "D'où vient l'inspiration ?",
         keywords: ["inspir", "idee", "création", "createur", "pourquoi", "emilie", "histoire"],
-        answer: "Toute l'inspiration d'Émilie vient de la nature : bois flotté ramassé sur la côte, argile, lin, liège… Chaque pièce célèbre l'un des quatre éléments de la marque — terre, eau, bois et lin. Vous pouvez lire son parcours complet sur la page « Notre histoire »."
+        answer: "Toute l'inspiration d'Émilie vient de la nature : bois flotté ramassé sur la côte, argile, lin, liège… Chaque pièce célèbre l'un des cinq éléments de la marque — eau, terre, bois, vent et feu. Vous pouvez lire son parcours complet sur la page « Notre histoire »."
       },
       {
         id: "paiement",
@@ -33,7 +33,7 @@ const CHAT_KB = {
         id: "matieres",
         label: "Quelles matières ?",
         keywords: ["matiere", "materiau", "bois", "argile", "lin", "liege", "fabrique", "compose", "naturel"],
-        answer: "Bois flotté, argile, lin, liège, laiton… chaque création est façonnée à partir de matières brutes et naturelles, en écho aux quatre éléments de la marque : terre, eau, bois et lin."
+        answer: "Bois flotté, argile, lin, liège, laiton… chaque création est façonnée à partir de matières brutes et naturelles, en écho aux cinq éléments de la marque : eau, terre, bois, vent et feu."
       },
       {
         id: "surmesure",
@@ -68,7 +68,7 @@ const CHAT_KB = {
         id: "inspiration",
         label: "Where does the inspiration come from?",
         keywords: ["inspir", "idea", "creat", "why", "emilie", "story"],
-        answer: "All of Émilie's inspiration comes from nature: driftwood gathered along the coast, clay, linen, cork… Every piece celebrates one of the brand's four elements — earth, water, wood and linen. Read her full story on the \"Our story\" page."
+        answer: "All of Émilie's inspiration comes from nature: driftwood gathered along the coast, clay, linen, cork… Every piece celebrates one of the brand's five elements — water, earth, wood, wind and fire. Read her full story on the \"Our story\" page."
       },
       {
         id: "paiement",
@@ -86,7 +86,7 @@ const CHAT_KB = {
         id: "matieres",
         label: "What materials?",
         keywords: ["material", "wood", "clay", "linen", "cork", "made of", "natural"],
-        answer: "Driftwood, clay, linen, cork, brass… every creation is shaped from raw, natural materials, echoing the brand's four elements: earth, water, wood and linen."
+        answer: "Driftwood, clay, linen, cork, brass… every creation is shaped from raw, natural materials, echoing the brand's five elements: water, earth, wood, wind and fire."
       },
       {
         id: "surmesure",
@@ -121,7 +121,7 @@ const CHAT_KB = {
         id: "inspiration",
         label: "¿De dónde viene la inspiración?",
         keywords: ["inspir", "idea", "creac", "por que", "emilie", "historia"],
-        answer: "Toda la inspiración de Émilie viene de la naturaleza: madera flotante recogida en la costa, arcilla, lino, corcho… Cada pieza celebra uno de los cuatro elementos de la marca — tierra, agua, madera y lino. Lee su historia completa en la página «Nuestra historia»."
+        answer: "Toda la inspiración de Émilie viene de la naturaleza: madera flotante recogida en la costa, arcilla, lino, corcho… Cada pieza celebra uno de los cinco elementos de la marca — agua, tierra, madera, viento y fuego. Lee su historia completa en la página «Nuestra historia»."
       },
       {
         id: "paiement",
@@ -139,7 +139,7 @@ const CHAT_KB = {
         id: "matieres",
         label: "¿Qué materiales?",
         keywords: ["material", "madera", "arcilla", "lino", "corcho", "hecho de", "natural"],
-        answer: "Madera flotante, arcilla, lino, corcho, latón… cada creación se moldea con materiales brutos y naturales, en eco a los cuatro elementos de la marca: tierra, agua, madera y lino."
+        answer: "Madera flotante, arcilla, lino, corcho, latón… cada creación se moldea con materiales brutos y naturales, en eco a los cinco elementos de la marca: agua, tierra, madera, viento y fuego."
       },
       {
         id: "surmesure",
@@ -188,8 +188,8 @@ function buildChatWidget(){
   wrap.className = "chat-widget";
   wrap.innerHTML = `
     <button class="chat-bubble" type="button" aria-label="Ouvrir l'assistant">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="chat-bubble-icon"><path d="M4 4h16v12H8l-4 4V4Z"/></svg>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="chat-bubble-close"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      <span class="ms chat-bubble-icon" aria-hidden="true">chat_bubble</span>
+      <span class="ms chat-bubble-close" aria-hidden="true">close</span>
       <span class="chat-bubble-label"></span>
     </button>
     <div class="chat-panel" role="dialog" aria-label="Assistant">
@@ -204,7 +204,7 @@ function buildChatWidget(){
       <form class="chat-input-row">
         <input type="text" class="chat-input" autocomplete="off">
         <button type="submit" class="chat-send" aria-label="Envoyer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+          <span class="ms" aria-hidden="true">arrow_forward</span>
         </button>
       </form>
     </div>

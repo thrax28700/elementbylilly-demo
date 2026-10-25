@@ -5,190 +5,220 @@ const PRODUCTS = [
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Bleu de glace\"",
     "price": 28.0,
-    "image": "assets/img/products/boucles-d-oreilles-bleu-de-glace.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-bleu-de-glace.jpg",
+    "elements": ["eau"]
   },
   {
     "id": "boucles-d-oreilles-creole-bohemian-1",
     "category": "bijoux",
     "name": "Boucles d'oreilles créole \"Bohémian\"",
     "price": 15.0,
-    "image": "assets/img/products/boucles-d-oreilles-cr-ole-boh-mian.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-cr-ole-boh-mian.jpg",
+    "elements": ["terre", "vent"]
   },
   {
     "id": "boucles-d-oreilles-eclat-celeste",
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Éclat Céleste\"",
     "price": 30.0,
-    "image": "assets/img/products/boucles-d-oreilles-clat-c-leste.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-clat-c-leste.jpg",
+    "elements": ["eau", "feu"]
   },
   {
     "id": "boucles-d-oreilles-eclats-d-azur-1",
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Éclats d'azur\"",
     "price": 30.0,
-    "image": "assets/img/products/boucles-d-oreilles-clats-d-azur.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-clats-d-azur.jpg",
+    "elements": ["eau"]
   },
   {
     "id": "boucles-d-oreilles-egyptian",
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Egyptian\"",
     "price": 20.0,
-    "image": "assets/img/products/boucles-d-oreilles-egyptian.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-egyptian.jpg",
+    "elements": ["terre", "feu"]
   },
   {
     "id": "boucles-d-oreilles-egyptian-bleu",
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Egyptian bleu\"",
     "price": 20.0,
-    "image": "assets/img/products/boucles-d-oreilles-egyptian-bleu.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-egyptian-bleu.jpg",
+    "elements": ["terre", "feu"]
   },
   {
     "id": "boucles-d-oreilles-elegance-1",
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Élégance\"",
     "price": 28.0,
-    "image": "assets/img/products/boucles-d-oreilles-l-gance.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-l-gance.jpg",
+    "elements": ["eau"]
   },
   {
     "id": "boucles-d-oreilles-fleur-de-marbre-bleu-1",
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Fleur de marbre bleu\"",
     "price": 30.0,
-    "image": "assets/img/products/boucles-d-oreilles-fleur-de-marbre-bleu.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-fleur-de-marbre-bleu.jpg",
+    "elements": ["eau", "vent"]
   },
   {
     "id": "boucles-d-oreilles-marbre-dore-1",
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Marbre doré\"",
     "price": 28.0,
-    "image": "assets/img/products/boucles-d-oreilles-marbre-dor.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-marbre-dor.jpg",
+    "elements": ["terre", "feu"]
   },
   {
     "id": "boucles-d-oreilles-ocean-d-or-1",
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Océan d'or\"",
     "price": 30.0,
-    "image": "assets/img/products/boucles-d-oreilles-oc-an-d-or.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-oc-an-d-or.jpg",
+    "elements": ["eau", "feu"]
   },
   {
     "id": "boucles-d-oreilles-pastel-d-eau-1",
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Pastel d'eau\"",
     "price": 28.0,
-    "image": "assets/img/products/boucles-d-oreilles-pastel-d-eau.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-pastel-d-eau.jpg",
+    "elements": ["eau", "terre"]
   },
   {
     "id": "boucles-d-oreilles-reve-azur",
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Rêve azur\"",
     "price": 25.0,
-    "image": "assets/img/products/boucles-d-oreilles-r-ve-azur.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-r-ve-azur.jpg",
+    "elements": ["eau", "feu"]
   },
   {
     "id": "boucles-d-oreilles-rosee-du-matin-1",
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Rosée du matin\"",
     "price": 15.0,
-    "image": "assets/img/products/boucles-d-oreilles-ros-e-du-matin.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-ros-e-du-matin.jpg",
+    "elements": ["terre", "vent"]
   },
   {
     "id": "boucles-d-oreilles-serenite",
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Sérénité\"",
     "price": 30.0,
-    "image": "assets/img/products/boucles-d-oreilles-s-r-nit.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-s-r-nit.jpg",
+    "elements": ["eau", "feu"]
   },
   {
     "id": "boucles-d-oreilles-terre-de-lune-1",
     "category": "bijoux",
     "name": "Boucles d’oreilles \"Terre de lune\"",
     "price": 30.0,
-    "image": "assets/img/products/boucles-d-oreilles-terre-de-lune.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-terre-de-lune.jpg",
+    "elements": ["terre", "eau"]
   },
   {
     "id": "boucles-d-oreilles-triangle-bleu",
     "category": "bijoux",
     "name": "Boucles d'oreilles \"Triangle bleu\"",
     "price": 28.0,
-    "image": "assets/img/products/boucles-d-oreilles-triangle-bleu.jpg"
+    "image": "assets/img/products/boucles-d-oreilles-triangle-bleu.jpg",
+    "elements": ["eau", "feu"]
   },
   {
     "id": "maison-en-bois",
     "category": "decorations-a-poser",
     "name": "Maison en bois",
     "price": 80.0,
-    "image": "assets/img/products/maison-en-bois.jpg"
+    "image": "assets/img/products/maison-en-bois.jpg",
+    "elements": ["bois"]
   },
   {
     "id": "navire-en-bois-flotte",
     "category": "decorations-a-poser",
     "name": "Navire en bois flotté",
     "price": 79.0,
-    "image": "assets/img/products/navire-en-bois-flott.jpg"
+    "image": "assets/img/products/navire-en-bois-flott.jpg",
+    "elements": ["bois", "vent"]
   },
   {
     "id": "phare-cotier-en-bois-flotte",
     "category": "decorations-a-poser",
     "name": "Phare côtier en bois flotté",
     "price": 60.0,
-    "image": "assets/img/products/phare-c-tier-en-bois-flott.jpg"
+    "image": "assets/img/products/phare-c-tier-en-bois-flott.jpg",
+    "elements": ["bois", "eau"]
   },
   {
     "id": "port-cotier",
     "category": "decorations-a-poser",
     "name": "Port côtier",
     "price": 100.0,
-    "image": "assets/img/products/port-c-tier.jpg"
+    "image": "assets/img/products/port-c-tier.jpg",
+    "elements": ["bois", "eau"]
   },
   {
     "id": "village-cotier",
     "category": "decorations-a-poser",
     "name": "Village côtier",
     "price": 80.0,
-    "image": "assets/img/products/village-c-tier.jpg"
+    "image": "assets/img/products/village-c-tier.jpg",
+    "elements": ["bois", "eau"]
   },
   {
     "id": "village-de-pecheurs-en-bois-flotte",
     "category": "decorations-a-poser",
     "name": "Village de pêcheurs en bois flotté",
     "price": 100.0,
-    "image": "assets/img/products/village-de-p-cheurs-en-bois-flott.jpg"
+    "image": "assets/img/products/village-de-p-cheurs-en-bois-flott.jpg",
+    "elements": ["bois", "vent"]
   },
   {
     "id": "voilier-en-bois-flotte-et-voile-en-toile-de-lin",
     "category": "decorations-a-poser",
     "name": "Voilier en bois flotté et voile en toile de lin",
     "price": 120.0,
-    "image": "assets/img/products/voilier-en-bois-flott-et-voile-en-toile-de-lin.jpg"
+    "image": "assets/img/products/voilier-en-bois-flott-et-voile-en-toile-de-lin.jpg",
+    "elements": ["bois", "vent"]
   },
   {
     "id": "hotel-en-bois",
     "category": "decorations-a-poser",
     "name": "Hôtel en bois",
     "price": 75.0,
-    "image": "assets/img/products/h-tel-en-bois.jpg"
+    "image": "assets/img/products/h-tel-en-bois.jpg",
+    "elements": ["bois", "terre"]
   },
   {
     "id": "insouciance",
     "category": "illustrations",
     "name": "Insouciance",
     "price": 210.0,
-    "image": "assets/img/products/insouciance.jpg"
+    "image": "assets/img/products/insouciance.jpg",
+    "elements": ["vent", "terre"]
   },
   {
     "id": "intuition",
     "category": "illustrations",
     "name": "Intuition",
     "price": 210.0,
-    "image": "assets/img/products/intuition.jpg"
+    "image": "assets/img/products/intuition.jpg",
+    "elements": ["bois", "feu"]
   },
   {
     "id": "resilience",
     "category": "illustrations",
     "name": "Résilience",
     "price": 210.0,
-    "image": "assets/img/products/r-silience.jpg"
+    "image": "assets/img/products/r-silience.jpg",
+    "elements": ["vent", "eau"]
   }
 ];
 
 const CATEGORY_ORDER = ["bijoux", "decorations-a-poser", "illustrations"];
+
+// Les cinq elements de la marque — chaque creation est rattachee a ceux qui l'ont inspiree
+const ELEMENT_ORDER = ["eau", "terre", "bois", "vent", "feu"];

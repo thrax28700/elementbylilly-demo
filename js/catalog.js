@@ -1,12 +1,5 @@
 // ELEMENT by Lilly — catalogue, filtres, apercu rapide, selection (liste d'envies)
 
-const CATEGORY_ICONS = {
-  "bijoux": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="7"/><path d="M12 7v10M7 12h10"/></svg>',
-  "decorations-a-poser": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 21h10M9 3h6l1 8a4 4 0 0 1-8 0l1-8Z"/></svg>',
-  "decorations-murales": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 15l3-3 2 2 3-4"/></svg>',
-  "illustrations": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3v4M3 12h4M17 12h4M12 17v4M6 6l2.5 2.5M17.5 6.5 15 9M6 18l2.5-2.5M17.5 17.5 15 15"/></svg>',
-};
-
 function formatPrice(n){
   const lang = getCurrentLang();
   return new Intl.NumberFormat(lang === "en" ? "en-IE" : lang === "es" ? "es-ES" : "fr-FR", { style: "currency", currency: "EUR" }).format(n);
@@ -21,7 +14,7 @@ const SELECTION_KEY = "ebl_selection";
 function getSelection(){
   try { return JSON.parse(localStorage.getItem(SELECTION_KEY)) || []; } catch(e){ return []; }
 }
-function saveSelection(list){ localStorage.setItem(SELECTION_KEY, JSON.stringify(list)); }
+function saveSelection(list){ try { localStorage.setItem(SELECTION_KEY, JSON.stringify(list)); } catch(e){} }
 function isSelected(id){ return getSelection().includes(id); }
 function toggleSelection(id){
   let list = getSelection();
@@ -111,7 +104,7 @@ function productCardHTML(p){
       <div class="product-media">
         <img src="${p.image}" alt="${p.name}" loading="lazy">
         <button class="product-quick" data-quickview-id="${p.id}" aria-label="${t('product.quickview')}">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="ms" aria-hidden="true">visibility</span>
         </button>
       </div>
       <span class="product-cat" data-i18n="cat.${p.category}">${t('cat.' + p.category)}</span>
@@ -181,30 +174,143 @@ function closeQuickView(){
   document.body.style.overflow = "";
 }
 
-/* ---------- Page d'accueil : categories + nouveautes ---------- */
-function renderHomeCategories(){
-  const grid = document.querySelector("[data-category-grid]");
-  if (!grid) return;
-  grid.innerHTML = CATEGORY_ORDER.map(cat => {
-    const sample = productsByCategory(cat)[0];
+/* ---------- Page d'accueil : savoir-faire, explorateur par element, galerie ---------- */
+const CRAFTS = [
+  { key: "bijoux", cat: "bijoux", images: ["boucles-d-oreilles-reve-azur", "boucles-d-oreilles-terre-de-lune-1", "boucles-d-oreilles-ocean-d-or-1"] },
+  { key: "bois", cat: "decorations-a-poser", images: ["voilier-en-bois-flotte-et-voile-en-toile-de-lin", "village-cotier", "phare-cotier-en-bois-flotte"] },
+  { key: "dessin", cat: "illustrations", images: ["intuition", "insouciance", "resilience"] },
+];
+
+function productById(id){ return PRODUCTS.find(p => p.id === id); }
+
+function renderCrafts(){
+  const wrap = document.querySelector("[data-crafts]");
+  if (!wrap) return;
+  wrap.innerHTML = CRAFTS.map((c, i) => {
+    const items = productsByCategory(c.cat);
+    const min = Math.min(...items.map(p => p.price));
+    const imgs = c.images.map(productById).filter(Boolean);
     return `
-      <a class="category-card" href="boutique.html?cat=${cat}">
-        <img src="${sample ? sample.image : ''}" alt="${cat}">
-        <div class="overlay">
-          <h3 data-i18n="cat.${cat}">${t('cat.' + cat)}</h3>
+      <article class="craft ${i % 2 ? 'craft-reverse' : ''} reveal">
+        <div class="craft-media">
+          ${imgs.map((p, k) => `<button type="button" class="craft-img craft-img-${k}" data-quickview-id="${p.id}" aria-label="${p.name}"><img src="${p.image}" alt="${p.name}" loading="lazy"></button>`).join("")}
         </div>
-      </a>
+        <div class="craft-body">
+          <span class="craft-num">0${i + 1}</span>
+          <h3 data-i18n="craft.${c.key}.title">${t('craft.' + c.key + '.title')}</h3>
+          <p data-i18n="craft.${c.key}.text">${t('craft.' + c.key + '.text')}</p>
+          <div class="craft-meta">
+            <span>${t('craft.count').replace('{n}', items.length)}</span>
+            <span>${t('craft.from').replace('{p}', formatPrice(min))}</span>
+          </div>
+          <a class="btn btn-outline" href="boutique.html?cat=${c.cat}">${t('craft.cta')}</a>
+        </div>
+      </article>
     `;
   }).join("");
+  wrap.querySelectorAll("[data-quickview-id]").forEach(btn => btn.addEventListener("click", () => openQuickView(btn.getAttribute("data-quickview-id"))));
+  observeReveal(wrap);
 }
 
-function renderFeatured(){
-  const grid = document.querySelector("[data-featured-grid]");
-  if (!grid) return;
-  const featured = PRODUCTS.slice(-4).reverse();
-  grid.innerHTML = featured.map(productCardHTML).join("");
-  wireProductCards(grid);
+// Illustrations au trait des cinq elements, pour le bandeau defilant
+const ELEMENT_ART = {
+  eau: '<path d="M32 6s9 10 9 16a9 9 0 0 1-18 0c0-6 9-16 9-16Z"/><path d="M28 21a4 4 0 0 0 3 4"/><path d="M4 42c5-5 9-5 14 0s9 5 14 0 9-5 14 0 9 5 14 0"/><path d="M4 52c5-5 9-5 14 0s9 5 14 0 9-5 14 0 9 5 14 0"/>',
+  terre: '<path d="M4 54 22 24l10 15 8-11 20 26Z"/><path d="M17 32l5-8 5 8-5-2Z"/><circle cx="48" cy="13" r="6"/><path d="M48 3v2M58 13h-2M41 6l1.5 1.5M55 6l-1.5 1.5"/><path d="M2 54h60"/>',
+  bois: '<path d="M32 6c10 0 17 7 17 15 0 7-6 12-12 12H27c-6 0-12-5-12-12 0-8 7-15 17-15Z"/><path d="M32 58V24M32 38l-8-6M32 44l9-7"/><path d="M22 58c4-2 7-2 10 0 3-2 6-2 10 0"/>',
+  vent: '<path d="M4 22h30a7 7 0 1 0-7-7"/><path d="M4 32h44a7 7 0 1 1-7 7"/><path d="M4 42h22"/><path d="M48 12c6-1 10 2 11 8-6 1-10-2-11-8Z"/><path d="M50 14l7 5"/>',
+  feu: '<path d="M32 50c9 0 15-6 15-14 0-11-10-15-10-25-6 4-9 10-9 15-2-2-4-4-4-8-4 4-7 10-7 17 0 9 6 15 15 15Z"/><path d="M32 50c-4 0-7-3-7-7 0-4 3-6 4-10 2 3 3 4 3 6 1-2 2-3 4-4 0 3 3 5 3 8 0 4-3 7-7 7Z"/><path d="M16 59l32-6M48 59l-32-6"/>',
+};
+
+function renderMarquee(){
+  const track = document.querySelector("[data-marquee]");
+  if (!track) return;
+  const run = ELEMENT_ORDER.map(el => `
+    <svg class="mq-art mq-${el}" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><title>${t('el.' + el)}</title>${ELEMENT_ART[el]}</svg><i></i>`).join("");
+  // Contenu double pour un defilement continu
+  track.innerHTML = `<div>${run.repeat(3)}</div><div>${run.repeat(3)}</div>`;
 }
+
+let explorerElement = "eau";
+function renderExplorer(){
+  const section = document.querySelector("[data-explorer]");
+  if (!section) return;
+  const tabs = section.querySelector("[data-explorer-tabs]");
+  const grid = section.querySelector("[data-explorer-grid]");
+  const link = section.querySelector("[data-explorer-link]");
+  tabs.innerHTML = ELEMENT_ORDER.map(el => `
+    <button type="button" role="tab" class="explorer-tab" data-tab="${el}" aria-selected="${el === explorerElement}">
+      <span class="explorer-dot dot-${el}"></span>${t('el.' + el)}
+      <small>${PRODUCTS.filter(p => p.elements.includes(el)).length}</small>
+    </button>
+  `).join("");
+  const items = PRODUCTS.filter(p => p.elements.includes(explorerElement)).slice(0, 8);
+  grid.innerHTML = items.map(productCardHTML).join("");
+  grid.classList.remove("is-swapping");
+  void grid.offsetWidth;
+  grid.classList.add("is-swapping");
+  wireProductCards(grid);
+  section.setAttribute("data-mode", explorerElement);
+  if (link) link.href = "boutique.html?el=" + explorerElement;
+  tabs.querySelectorAll("[data-tab]").forEach(btn => btn.addEventListener("click", () => {
+    setActiveElement(btn.getAttribute("data-tab"), "explorer");
+  }));
+}
+
+function renderGallery(){
+  const strip = document.querySelector("[data-gallery]");
+  if (!strip) return;
+  strip.innerHTML = PRODUCTS.map(p => `
+    <button type="button" class="gallery-item" data-quickview-id="${p.id}">
+      <img src="${p.image}" alt="${p.name}" loading="lazy" draggable="false">
+      <span class="gallery-caption"><strong>${p.name}</strong><span>${formatPrice(p.price)}</span></span>
+    </button>
+  `).join("");
+  strip.querySelectorAll("[data-quickview-id]").forEach(btn => btn.addEventListener("click", (e) => {
+    if (strip.dataset.dragged === "1") { e.preventDefault(); return; }
+    openQuickView(btn.getAttribute("data-quickview-id"));
+  }));
+  if (strip.dataset.wired) return;
+  strip.dataset.wired = "1";
+  // Glisser a la souris (le tactile defile nativement)
+  let down = false, startX = 0, startScroll = 0;
+  strip.addEventListener("pointerdown", (e) => {
+    if (e.pointerType !== "mouse") return;
+    down = true; startX = e.clientX; startScroll = strip.scrollLeft; strip.dataset.dragged = "0";
+  });
+  window.addEventListener("pointermove", (e) => {
+    if (!down) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 5) { strip.dataset.dragged = "1"; strip.classList.add("is-dragging"); }
+    strip.scrollLeft = startScroll - dx;
+  });
+  window.addEventListener("pointerup", () => {
+    down = false; strip.classList.remove("is-dragging");
+    setTimeout(() => { strip.dataset.dragged = "0"; }, 0);
+  });
+}
+
+function observeReveal(root){
+  const els = root.querySelectorAll(".reveal:not(.in-view)");
+  if (!("IntersectionObserver" in window)) { els.forEach(el => el.classList.add("in-view")); return; }
+  const io = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add("in-view"); io.unobserve(entry.target); }
+  }), { threshold: 0.15 });
+  els.forEach(el => io.observe(el));
+}
+
+function renderHome(){
+  renderMarquee();
+  renderCrafts();
+  renderExplorer();
+  renderGallery();
+}
+
+document.addEventListener("elementchange", (e) => {
+  if (e.detail.source === "auto" || !document.querySelector("[data-explorer]")) return;
+  if (explorerElement === e.detail.element) return;
+  explorerElement = e.detail.element;
+  renderExplorer();
+});
 
 /* ---------- Donnees structurees (SEO) pour la boutique ---------- */
 function injectProductListSchema(){
@@ -246,6 +352,7 @@ function renderBoutique(){
   injectProductListSchema();
   const params = new URLSearchParams(window.location.search);
   let activeCat = params.get("cat") || "all";
+  let activeEl = ELEMENT_ORDER.includes(params.get("el")) ? params.get("el") : null;
 
   const filterBar = document.querySelector("[data-filter-bar]");
   const cats = ["all", ...CATEGORY_ORDER];
@@ -253,36 +360,67 @@ function renderBoutique(){
     <button class="filter-btn ${cat === activeCat ? 'active' : ''}" data-filter="${cat}" data-i18n="cat.${cat === 'all' ? 'all' : cat}">${t('cat.' + (cat === 'all' ? 'all' : cat))}</button>
   `).join("");
 
-  function draw(cat){
-    const items = productsByCategory(cat);
+  const elementBar = document.querySelector("[data-element-bar]");
+  if (elementBar) {
+    elementBar.innerHTML = `<span class="element-bar-label" data-i18n="boutique.elements">${t('boutique.elements')}</span>` + ELEMENT_ORDER.map(el => `
+      <button class="element-filter ${el === activeEl ? 'active' : ''}" data-element-filter="${el}" aria-pressed="${el === activeEl}">
+        <span class="explorer-dot dot-${el}"></span><span data-i18n="el.${el}">${t('el.' + el)}</span>
+      </button>
+    `).join("");
+  }
+
+  function draw(){
+    const items = productsByCategory(activeCat).filter(p => !activeEl || p.elements.includes(activeEl));
     grid.innerHTML = items.length ? items.map(productCardHTML).join("") : `<p class="text-center" style="grid-column:1/-1">${t('boutique.empty')}</p>`;
     wireProductCards(grid);
     updateSelectionUI();
   }
-  draw(activeCat);
+
+  function syncUrl(){
+    const url = new URL(window.location);
+    if (activeCat === "all") url.searchParams.delete("cat"); else url.searchParams.set("cat", activeCat);
+    if (activeEl) url.searchParams.set("el", activeEl); else url.searchParams.delete("el");
+    window.history.replaceState({}, "", url);
+  }
+  draw();
+  if (activeEl) document.dispatchEvent(new CustomEvent("elementchange", { detail: { element: activeEl, source: "boutique" } }));
 
   filterBar.querySelectorAll("[data-filter]").forEach(btn => {
     btn.addEventListener("click", () => {
       activeCat = btn.getAttribute("data-filter");
       filterBar.querySelectorAll(".filter-btn").forEach(b => b.classList.toggle("active", b === btn));
-      const url = new URL(window.location);
-      if (activeCat === "all") url.searchParams.delete("cat"); else url.searchParams.set("cat", activeCat);
-      window.history.replaceState({}, "", url);
-      draw(activeCat);
+      syncUrl();
+      draw();
     });
   });
 
-  document.addEventListener("langchange", () => draw(activeCat));
+  if (elementBar) elementBar.querySelectorAll("[data-element-filter]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const el = btn.getAttribute("data-element-filter");
+      activeEl = activeEl === el ? null : el;
+      elementBar.querySelectorAll("[data-element-filter]").forEach(b => {
+        const on = b.getAttribute("data-element-filter") === activeEl;
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      syncUrl();
+      draw();
+      if (activeEl) document.dispatchEvent(new CustomEvent("elementchange", { detail: { element: activeEl, source: "boutique" } }));
+    });
+  });
+
+  document.addEventListener("langchange", draw);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderHomeCategories();
-  renderFeatured();
+  renderHome();
   renderBoutique();
   wireSelectionPanel();
   document.addEventListener("langchange", () => {
-    renderHomeCategories();
-    renderFeatured();
+    renderMarquee();
+    renderCrafts();
+    renderExplorer();
+    renderGallery();
     updateSelectionUI();
   });
 });

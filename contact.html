@@ -52,13 +52,13 @@
     </nav>
     <div class="header-actions">
       <button class="selection-toggle" aria-label="Ma sélection">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="ms" aria-hidden="true">shopping_bag</span>
         <span class="selection-count">0</span>
       </button>
       <div class="lang-switch">
         <button class="lang-current" type="button">
           <span data-lang-label>Français</span>
-          <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          <span class="ms ms-sm" aria-hidden="true">expand_more</span>
         </button>
         <div class="lang-menu">
           <button data-lang-option="fr">Français</button>
@@ -134,6 +134,8 @@
 
 <script src="js/products.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/ambiance.js"></script>
+<script src="js/protect.js"></script>
 <script>function formatPrice(n){const lang=getCurrentLang();return new Intl.NumberFormat(lang==="en"?"en-IE":lang==="es"?"es-ES":"fr-FR",{style:"currency",currency:"EUR"}).format(n);}</script>
 <script src="js/contact.js"></script>
 <script src="js/main.js"></script>

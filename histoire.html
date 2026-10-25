@@ -52,13 +52,13 @@
     </nav>
     <div class="header-actions">
       <button class="selection-toggle" aria-label="Ma sélection">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="ms" aria-hidden="true">shopping_bag</span>
         <span class="selection-count">0</span>
       </button>
       <div class="lang-switch">
         <button class="lang-current" type="button">
           <span data-lang-label>Français</span>
-          <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          <span class="ms ms-sm" aria-hidden="true">expand_more</span>
         </button>
         <div class="lang-menu">
           <button data-lang-option="fr">Français</button>
@@ -113,17 +113,17 @@
       <h2 class="text-center reveal" data-i18n="bio.values.title">Ce qui nous guide</h2>
       <div class="values-grid reveal">
         <div class="value-card">
-          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--terre)" stroke-width="1.4"><path d="M12 3s6 4 6 9a6 6 0 0 1-12 0c0-5 6-9 6-9Z"/></svg></div>
+          <div class="value-icon"><span class="ms" style="color:var(--terre)" aria-hidden="true">back_hand</span></div>
           <h3 data-i18n="bio.value1.title">Fait main</h3>
           <p data-i18n="bio.value1.text">Chaque pièce est façonnée à la main, à l'atelier, sans production de masse.</p>
         </div>
         <div class="value-card">
-          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--sauge)" stroke-width="1.4"><path d="M12 3v18M12 9 7 5M12 12l6-4M12 16l-5 3"/></svg></div>
+          <div class="value-icon"><span class="ms" style="color:var(--sauge)" aria-hidden="true">eco</span></div>
           <h3 data-i18n="bio.value2.title">Matières naturelles</h3>
           <p data-i18n="bio.value2.text">Bois flotté, liège, lin, argile et corde — des matières brutes et vivantes.</p>
         </div>
         <div class="value-card">
-          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--eau)" stroke-width="1.4"><circle cx="12" cy="12" r="7"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div class="value-icon"><span class="ms" style="color:var(--eau)" aria-hidden="true">diamond</span></div>
           <h3 data-i18n="bio.value3.title">Pièces uniques</h3>
           <p data-i18n="bio.value3.text">De petites séries et des créations uniques, pensées comme des cadeaux à offrir.</p>
         </div>
@@ -184,6 +184,8 @@
 
 <script src="js/products.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/ambiance.js"></script>
+<script src="js/protect.js"></script>
 <script src="js/main.js"></script>
 <script src="js/chatbot.js"></script>
 </body>

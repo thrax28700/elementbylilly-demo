@@ -19,6 +19,15 @@ C'est un **prototype à montrer à Lilly** — aucun code n'est requis de sa par
 
 Les deux solutions sont gratuites à vie pour ce type de site (aucun serveur/paiement nécessaire).
 
+**Aperçu sur Vercel (sans toucher au domaine elementbylilly.fr)**
+1. Dans ce dossier : `npx vercel` (connexion à son compte Vercel la première fois, puis accepter les réglages proposés : site statique, aucune commande de build).
+2. Vercel donne une adresse `https://…vercel.app` à partager. Le domaine `elementbylilly.fr` n'est **pas** touché tant qu'on ne l'ajoute pas dans les réglages Vercel.
+3. `vercel.json` demande à Google de **ne pas indexer** cet aperçu (en-tête `noindex`), pour ne pas concurrencer le vrai site. Le jour du lancement officiel, supprimer ce bloc `X-Robots-Tag`.
+
+**Tester en local** : `python -m http.server 8791` dans ce dossier, puis ouvrir http://localhost:8791.
+
+**Ambiance sonore** : elle est générée en direct par le navigateur (`js/ambiance.js`), il n'y a aucun fichier audio et donc aucun droit d'auteur à gérer. Elle reste coupée tant que le visiteur ne l'active pas (bouton en bas à gauche).
+
 ## 2. Installer le site comme une application mobile
 
 Une fois en ligne : ouvrir le site sur un téléphone (Chrome Android ou Safari iOS), puis :
