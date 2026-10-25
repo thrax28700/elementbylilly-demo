@@ -1,6 +1,6 @@
 // ELEMENT by Lilly — ambiance sonore douce, generee en direct dans le navigateur (Web Audio).
 // Aucun fichier audio, aucun droit d'auteur : des nappes lentes, quelques notes de cristal,
-// et une texture propre a chaque element (eau, terre, bois, vent, feu).
+// et une texture propre a chaque element (eau, terre, bois, vent, ether).
 // Active par defaut : elle demarre des que le navigateur l'autorise (souvent au premier clic ou a la
 // premiere touche, les navigateurs bloquant le son sans geste du visiteur). Le bouton permet de la couper,
 // et ce choix est memorise d'une page a l'autre.
@@ -125,13 +125,18 @@ const Ambiance = (() => {
     });
     textures.terre = { bus: terre, level: 0.55 };
 
-    // Feu : braises douces — grave chaud + petits craquements aleatoires
-    const feu = textureBus();
-    const feuLp = ctx.createBiquadFilter();
-    feuLp.type = "lowpass"; feuLp.frequency.value = 260;
-    const feuBed = ctx.createGain(); feuBed.gain.value = 0.35;
-    loopNoise(true).connect(feuLp).connect(feuBed).connect(feu);
-    textures.feu = { bus: feu, level: 0.6, crackle: true };
+    // Ether : nappe aigue et scintillante (la / mi), qui ondule lentement
+    const ether = textureBus();
+    const shimmer = ctx.createGain(); shimmer.gain.value = 0.5;
+    [880, 1318.51, 1760].forEach((f, i) => {
+      const o = ctx.createOscillator();
+      o.type = "sine"; o.frequency.value = f; o.detune.value = (i - 1) * 5;
+      const g = ctx.createGain(); g.gain.value = [0.05, 0.035, 0.015][i];
+      o.connect(g).connect(shimmer); o.start();
+    });
+    lfo(0.13, 0.4, shimmer.gain);
+    shimmer.connect(ether);
+    textures.ether = { bus: ether, level: 0.7 };
 
     // Bois : le bus sert aux notes boisees (type kalimba) jouees par le planificateur
     const bois = textureBus();
@@ -170,18 +175,6 @@ const Ambiance = (() => {
     o.start(t0); o.stop(t0 + decay + 0.1);
   }
 
-  function crackle(){
-    const t0 = ctx.currentTime + 0.01;
-    const src = ctx.createBufferSource();
-    src.buffer = noiseBuffer(0.05, false);
-    const hp = ctx.createBiquadFilter();
-    hp.type = "highpass"; hp.frequency.value = 1800 + Math.random() * 2500;
-    const g = ctx.createGain();
-    g.gain.setValueAtTime(0.05 + Math.random() * 0.06, t0);
-    g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.04);
-    src.connect(hp).connect(g).connect(textures.feu.bus);
-    src.start(t0);
-  }
 
   function every(minMs, maxMs, fn){
     const tick = () => {
@@ -207,8 +200,11 @@ const Ambiance = (() => {
       if (current !== "bois") return;
       bell(PENTA[Math.floor(Math.random() * 5)] / 2, 0.09, textures.bois.bus, "triangle", 1.2);
     });
-    // Craquements du feu
-    every(90, 700, () => { if (current === "feu") crackle(); });
+    // Ether : notes de cristal plus frequentes, tres hautes
+    every(900, 2400, () => {
+      if (current !== "ether") return;
+      bell(PENTA[Math.floor(Math.random() * PENTA.length)] * 2, 0.025, reverb, "sine", 4);
+    });
   }
 
   function applyElement(name, seconds){

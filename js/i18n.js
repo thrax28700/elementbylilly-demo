@@ -1,7 +1,7 @@
 // ELEMENT by Lilly — traductions FR / EN / ES
 const I18N = {
   fr: {
-    "meta.home.title": "Bijoux fait main et bois flotté près de Chartres | ELEMENT by Lilly",
+    "meta.home.title": "Sculptures en bois, dessins et bijoux faits main près de Chartres | ELEMENT by Lilly",
     "meta.home.desc": "Émilie, artisane créatrice à Saint-Georges-sur-Eure près de Chartres (28), façonne à la main des boucles d'oreilles en argile, des décorations en bois flotté et des dessins originaux. Pièces uniques.",
     "meta.boutique.title": "Boucles d'oreilles fait main et décorations en bois flotté | ELEMENT by Lilly",
     "meta.histoire.title": "Émilie, artisane créatrice près de Chartres | ELEMENT by Lilly",
@@ -20,7 +20,7 @@ const I18N = {
     "cat.illustrations": "Illustrations",
     "cat.all": "Tout voir",
 
-    "hero.eyebrow": "Bijoux, bois flotté et dessins faits main · près de Chartres",
+    "hero.eyebrow": "Sculptures en bois, dessins et bijoux faits main · près de Chartres",
     "hero.title.pre": "Quand",
     "hero.title.script": "l'art",
     "hero.title.mid": "brise",
@@ -35,12 +35,12 @@ const I18N = {
     "el.terre": "Terre",
     "el.bois": "Bois",
     "el.vent": "Vent",
-    "el.feu": "Feu",
+    "el.ether": "Éther",
     "el.eau.line": "Les bleus de l'océan, saisis dans des bijoux légers comme l'écume.",
     "el.terre.line": "Ocres, marbres et pierres : des pièces ancrées, chaudes et vibrantes.",
     "el.bois.line": "Le bois flotté, poli par la mer, devient phares, voiliers et villages.",
     "el.vent.line": "Voiles de lin et dessins aériens, pour laisser respirer l'âme.",
-    "el.feu.line": "L'éclat de l'or et la chaleur de la lumière, jusque dans les détails.",
+    "el.ether.line": "L'esprit, l'énergie universelle : le lien invisible entre toutes choses.",
     "sound.on": "Couper le son",
     "sound.off": "Activer le son",
 
@@ -53,8 +53,8 @@ const I18N = {
     "crafts.title": "Trois gestes, un même souffle",
     "craft.bijoux.title": "Des bijoux comme des paysages",
     "craft.bijoux.text": "Façonnée à la main dans l'argile, chaque paire de boucles d'oreilles est une petite mer, une pierre, un ciel. Des couleurs travaillées une à une, rehaussées d'or et de laiton, pour des bijoux légers qu'on ne croise nulle part ailleurs.",
-    "craft.bois.title": "Le bois flotté, sculpté en petits mondes",
-    "craft.bois.text": "Ramassé au fil des rivages, poli par l'eau et le temps, le bois flotté devient sous ses mains phares, voiliers, ports et villages de pêcheurs. Aucun morceau ne ressemble à un autre : aucune pièce non plus.",
+    "craft.bois.title": "Le bois, sculpté en petits mondes",
+    "craft.bois.text": "Bois flotté ramassé au fil des rivages ou souche de chêne façonnée pendant des heures : sous ses mains, le bois devient phares, falaises, voiliers et villages de pêcheurs. Aucun morceau ne ressemble à un autre, aucune pièce non plus.",
     "craft.dessin.title": "Des dessins tout en relief et en délicatesse",
     "craft.dessin.text": "Fleurs, renard, oiseau… Ses dessins naissent d'un trait minutieux et d'une sensibilité à fleur de peau. Des œuvres originales, encadrées, à accrocher comme on garde un secret.",
     "craft.count": "{n} pièces",
@@ -126,7 +126,7 @@ const I18N = {
     "qr.download.svg": "Télécharger en SVG",
     "qr.placeholder": "https://elementbylilly.fr",
 
-    "footer.tagline": "Bijoux, décorations en bois flotté et dessins faits main par Émilie, près de Chartres (28).",
+    "footer.tagline": "Sculptures en bois, dessins et bijoux faits main par Émilie, près de Chartres (28).",
     "footer.nav": "Navigation",
     "footer.follow": "Nous suivre",
     "footer.legal": "Site vitrine de démonstration",
@@ -139,7 +139,7 @@ const I18N = {
   },
 
   en: {
-    "meta.home.title": "Handmade jewelry and driftwood art near Chartres | ELEMENT by Lilly",
+    "meta.home.title": "Handmade wood sculptures, drawings and jewelry near Chartres | ELEMENT by Lilly",
     "meta.home.desc": "Émilie, a maker based in Saint-Georges-sur-Eure near Chartres, France, handcrafts clay earrings, driftwood decor and original drawings. One-of-a-kind pieces.",
     "meta.boutique.title": "Handmade earrings and driftwood decor | ELEMENT by Lilly",
     "meta.histoire.title": "Émilie, maker near Chartres | ELEMENT by Lilly",
@@ -158,7 +158,7 @@ const I18N = {
     "cat.illustrations": "Illustrations",
     "cat.all": "View all",
 
-    "hero.eyebrow": "Handmade jewelry, driftwood & drawings · near Chartres, France",
+    "hero.eyebrow": "Handmade wood sculptures, drawings & jewelry · near Chartres, France",
     "hero.title.pre": "When",
     "hero.title.script": "art",
     "hero.title.mid": "breaks",
@@ -173,12 +173,12 @@ const I18N = {
     "el.terre": "Earth",
     "el.bois": "Wood",
     "el.vent": "Wind",
-    "el.feu": "Fire",
+    "el.ether": "Ether",
     "el.eau.line": "Ocean blues, caught in jewelry as light as sea foam.",
     "el.terre.line": "Ochres, marbles and stones: grounded, warm, vibrant pieces.",
     "el.bois.line": "Driftwood, polished by the sea, becomes lighthouses, sailboats and villages.",
     "el.vent.line": "Linen sails and airy drawings, to let the soul breathe.",
-    "el.feu.line": "The glint of gold and the warmth of light, down to the smallest detail.",
+    "el.ether.line": "Spirit, universal energy: the invisible bond between all things.",
     "sound.on": "Mute sound",
     "sound.off": "Turn sound on",
 
@@ -191,8 +191,8 @@ const I18N = {
     "crafts.title": "Three gestures, one breath",
     "craft.bijoux.title": "Jewelry like landscapes",
     "craft.bijoux.text": "Handshaped from clay, each pair of earrings is a small sea, a stone, a sky. Colors worked one by one, lifted with gold and brass, for light jewelry you won't find anywhere else.",
-    "craft.bois.title": "Driftwood, sculpted into tiny worlds",
-    "craft.bois.text": "Gathered along the shores, polished by water and time, driftwood becomes lighthouses, sailboats, harbors and fishing villages in her hands. No two pieces of wood are alike — and neither are her creations.",
+    "craft.bois.title": "Wood, sculpted into tiny worlds",
+    "craft.bois.text": "Driftwood gathered along the shores or an oak stump shaped for hours: in her hands, wood becomes lighthouses, cliffs, sailboats and fishing villages. No two pieces of wood are alike, and neither are her creations.",
     "craft.dessin.title": "Drawings full of depth and delicacy",
     "craft.dessin.text": "Flowers, a fox, a bird… Her drawings are born from a meticulous line and a deep sensitivity. Original framed works, to hang the way one keeps a secret.",
     "craft.count": "{n} pieces",
@@ -264,7 +264,7 @@ const I18N = {
     "qr.download.svg": "Download as SVG",
     "qr.placeholder": "https://elementbylilly.fr",
 
-    "footer.tagline": "Jewelry, driftwood decor and drawings handmade by Émilie, near Chartres, France.",
+    "footer.tagline": "Wood sculptures, drawings and jewelry handmade by Émilie, near Chartres, France.",
     "footer.nav": "Navigation",
     "footer.follow": "Follow us",
     "footer.legal": "Demo showcase site",
@@ -277,7 +277,7 @@ const I18N = {
   },
 
   es: {
-    "meta.home.title": "Joyas hechas a mano y madera flotante cerca de Chartres | ELEMENT by Lilly",
+    "meta.home.title": "Esculturas de madera, dibujos y joyas hechas a mano cerca de Chartres | ELEMENT by Lilly",
     "meta.home.desc": "Émilie, creadora en Saint-Georges-sur-Eure cerca de Chartres (Francia), hace a mano pendientes de arcilla, decoración de madera flotante y dibujos originales. Piezas únicas.",
     "meta.boutique.title": "Pendientes hechos a mano y decoración de madera flotante | ELEMENT by Lilly",
     "meta.histoire.title": "Émilie, creadora cerca de Chartres | ELEMENT by Lilly",
@@ -296,7 +296,7 @@ const I18N = {
     "cat.illustrations": "Ilustraciones",
     "cat.all": "Ver todo",
 
-    "hero.eyebrow": "Joyas, madera flotante y dibujos hechos a mano · cerca de Chartres",
+    "hero.eyebrow": "Esculturas de madera, dibujos y joyas hechas a mano · cerca de Chartres",
     "hero.title.pre": "Cuando",
     "hero.title.script": "el arte",
     "hero.title.mid": "rompe",
@@ -311,12 +311,12 @@ const I18N = {
     "el.terre": "Tierra",
     "el.bois": "Madera",
     "el.vent": "Viento",
-    "el.feu": "Fuego",
+    "el.ether": "Éter",
     "el.eau.line": "Los azules del océano, atrapados en joyas ligeras como la espuma.",
     "el.terre.line": "Ocres, mármoles y piedras: piezas arraigadas, cálidas y vibrantes.",
     "el.bois.line": "La madera flotante, pulida por el mar, se convierte en faros, veleros y pueblos.",
     "el.vent.line": "Velas de lino y dibujos aéreos, para dejar respirar el alma.",
-    "el.feu.line": "El brillo del oro y el calor de la luz, hasta en los detalles.",
+    "el.ether.line": "El espíritu, la energía universal: el vínculo invisible entre todas las cosas.",
     "sound.on": "Silenciar",
     "sound.off": "Activar el sonido",
 
@@ -329,8 +329,8 @@ const I18N = {
     "crafts.title": "Tres gestos, un mismo aliento",
     "craft.bijoux.title": "Joyas como paisajes",
     "craft.bijoux.text": "Moldeado a mano en arcilla, cada par de pendientes es un pequeño mar, una piedra, un cielo. Colores trabajados uno a uno, realzados con oro y latón, para joyas ligeras que no encontrarás en ningún otro lugar.",
-    "craft.bois.title": "Madera flotante, esculpida en pequeños mundos",
-    "craft.bois.text": "Recogida en las orillas, pulida por el agua y el tiempo, la madera flotante se convierte en sus manos en faros, veleros, puertos y pueblos de pescadores. Ningún trozo se parece a otro, y ninguna pieza tampoco.",
+    "craft.bois.title": "La madera, esculpida en pequeños mundos",
+    "craft.bois.text": "Madera flotante recogida en las orillas o un tocón de roble trabajado durante horas: en sus manos, la madera se convierte en faros, acantilados, veleros y pueblos de pescadores. Ningún trozo se parece a otro, y ninguna pieza tampoco.",
     "craft.dessin.title": "Dibujos llenos de relieve y delicadeza",
     "craft.dessin.text": "Flores, un zorro, un pájaro… Sus dibujos nacen de un trazo minucioso y de una sensibilidad a flor de piel. Obras originales enmarcadas, para colgar como quien guarda un secreto.",
     "craft.count": "{n} piezas",
@@ -402,7 +402,7 @@ const I18N = {
     "qr.download.svg": "Descargar en SVG",
     "qr.placeholder": "https://elementbylilly.fr",
 
-    "footer.tagline": "Joyas, decoración de madera flotante y dibujos hechos a mano por Émilie, cerca de Chartres (Francia).",
+    "footer.tagline": "Esculturas de madera, dibujos y joyas hechas a mano por Émilie, cerca de Chartres (Francia).",
     "footer.nav": "Navegación",
     "footer.follow": "Síguenos",
     "footer.legal": "Sitio de demostración",

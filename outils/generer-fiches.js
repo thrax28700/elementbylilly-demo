@@ -18,8 +18,8 @@ const CAT = {
   "decorations-a-poser": { label: "Décorations à poser", alt: "décoration faite main" },
   "illustrations": { label: "Illustrations", alt: "dessin original encadré d'Émilie" },
 };
-const EL = { eau: "l'eau", terre: "la terre", bois: "le bois", vent: "le vent", feu: "le feu" };
-const EL_LABEL = { eau: "Eau", terre: "Terre", bois: "Bois", vent: "Vent", feu: "Feu" };
+const EL = { eau: "l'eau", terre: "la terre", bois: "le bois", vent: "le vent", ether: "l'éther" };
+const EL_LABEL = { eau: "Eau", terre: "Terre", bois: "Bois", vent: "Vent", ether: "Éther" };
 
 const slug = (p) => p.id.replace(/-1$/, "");
 const url = (p) => `creations/${slug(p)}.html`;
@@ -29,6 +29,14 @@ const list = (items) => items.length < 2 ? items.join("") : items.slice(0, -1).j
 const quoted = (name) => (name.match(/"([^"]+)"/) || [])[1];
 // Guillemets francais pour l'affichage : Boucles d'oreilles « Bleu de glace »
 const nice = (name) => name.replace(/"([^"]+)"/, "« $1 »");
+
+// Description courte pour Google : le texte d'Émilie s'il existe (coupé proprement), sinon un texte généré
+function summary(p){
+  if (!p.description) return description(p);
+  const first = p.description[0];
+  if (first.length <= 158) return first;
+  return first.slice(0, first.lastIndexOf(" ", 155)).replace(/[,;:]$/, "") + "…";
+}
 
 function description(p){
   const inspired = `inspirée par ${list(p.elements.map(e => EL[e]))}`;
@@ -59,7 +67,10 @@ function card(p){
 }
 
 function page(p){
-  const desc = description(p);
+  const desc = summary(p);
+  const paragraphs = p.description || [description(p)];
+  const images = p.gallery || [p.image];
+  const alt = nice(p.name) + ", " + CAT[p.category].alt;
   const title = `${nice(p.name)} fait main | ELEMENT by Lilly`;
   const pageUrl = BASE + url(p);
   const related = PRODUCTS.filter(x => x.id !== p.id && x.category === p.category).slice(0, 4);
@@ -69,8 +80,8 @@ function page(p){
       {
         "@type": "Product",
         "name": nice(p.name),
-        "image": BASE + p.image,
-        "description": desc,
+        "image": images.map(i => BASE + i),
+        "description": paragraphs.join(" "),
         "sku": slug(p),
         "category": CAT[p.category].label,
         "brand": { "@type": "Brand", "name": "ELEMENT by Lilly" },
@@ -120,12 +131,17 @@ function page(p){
       <span aria-current="page">${esc(nice(p.name))}</span>
     </nav>
     <article class="pp-grid">
-      <div class="pp-media"><img src="${p.image}" alt="${esc(nice(p.name) + ", " + CAT[p.category].alt)}"></div>
+      <div class="pp-gallery">
+        <div class="pp-media"><img src="${images[0]}" alt="${esc(alt)}" data-pp-main></div>${images.length > 1 ? `
+        <div class="pp-thumbs">${images.map((img, i) => `
+          <button type="button" class="pp-thumb${i ? "" : " is-active"}" data-pp-thumb="${img}" aria-label="Photo ${i + 1} sur ${images.length}"><img src="${img}" alt="${esc(alt)}, vue ${i + 1}" loading="lazy"></button>`).join("")}
+        </div>` : ""}
+      </div>
       <div class="pp-body">
         <span class="product-cat" data-i18n="cat.${p.category}">${CAT[p.category].label}</span>
         <h1 class="pp-title">${esc(nice(p.name))}</h1>
         <div class="pp-price">${price(p.price)}</div>
-        <p class="pp-desc">${esc(desc)}</p>
+        <div class="pp-desc">${paragraphs.map(t => `<p>${esc(t)}</p>`).join("")}</div>
         <ul class="pp-facts">
           <li><span class="ms" aria-hidden="true">back_hand</span>Pièce faite main par Émilie</li>
           <li><span class="ms" aria-hidden="true">eco</span>Atelier à Saint-Georges-sur-Eure (28), près de Chartres</li>
@@ -158,17 +174,17 @@ for (const p of PRODUCTS) fs.writeFileSync(path.join(ROOT, url(p)), page(p));
 const pages = [
   ["", "weekly", "1.0"], ["boutique.html", "weekly", "0.9"], ["histoire.html", "monthly", "0.8"], ["contact.html", "monthly", "0.6"],
 ];
-const urlTag = (loc, freq, prio, image) => `  <url>
+const urlTag = (loc, freq, prio, images = []) => `  <url>
     <loc>${BASE + loc}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${freq}</changefreq>
-    <priority>${prio}</priority>${image ? `
-    <image:image><image:loc>${BASE + image.loc}</image:loc><image:title>${esc(image.title)}</image:title></image:image>` : ""}
+    <priority>${prio}</priority>${images.map(img => `
+    <image:image><image:loc>${BASE + img.loc}</image:loc><image:title>${esc(img.title)}</image:title></image:image>`).join("")}
   </url>`;
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${pages.map(([loc, f, pr]) => urlTag(loc, f, pr)).join("\n")}
-${PRODUCTS.map(p => urlTag(url(p), "monthly", "0.7", { loc: p.image, title: nice(p.name) })).join("\n")}
+${PRODUCTS.map(p => urlTag(url(p), "monthly", "0.7", (p.gallery || [p.image]).map(loc => ({ loc, title: nice(p.name) })))).join("\n")}
 </urlset>
 `;
 fs.writeFileSync(path.join(ROOT, "sitemap.xml"), sitemap);

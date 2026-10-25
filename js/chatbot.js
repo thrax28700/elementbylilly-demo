@@ -15,7 +15,7 @@ const CHAT_KB = {
         id: "inspiration",
         label: "D'où vient l'inspiration ?",
         keywords: ["inspir", "idee", "création", "createur", "pourquoi", "emilie", "histoire"],
-        answer: "Toute l'inspiration d'Émilie vient de la nature : bois flotté ramassé sur la côte, argile, lin, liège… Chaque pièce célèbre l'un des cinq éléments de la marque — eau, terre, bois, vent et feu. Vous pouvez lire son parcours complet sur la page « Notre histoire »."
+        answer: "Toute l'inspiration d'Émilie vient de la nature : bois flotté ramassé sur la côte, argile, lin, liège… Chaque pièce célèbre l'un des cinq éléments de la marque — eau, terre, bois, vent et éther. Vous pouvez lire son parcours complet sur la page « Notre histoire »."
       },
       {
         id: "paiement",
@@ -33,7 +33,7 @@ const CHAT_KB = {
         id: "matieres",
         label: "Quelles matières ?",
         keywords: ["matiere", "materiau", "bois", "argile", "lin", "liege", "fabrique", "compose", "naturel"],
-        answer: "Bois flotté, argile, lin, liège, laiton… chaque création est façonnée à partir de matières brutes et naturelles, en écho aux cinq éléments de la marque : eau, terre, bois, vent et feu."
+        answer: "Bois flotté, argile, lin, liège, laiton… chaque création est façonnée à partir de matières brutes et naturelles, en écho aux cinq éléments de la marque : eau, terre, bois, vent et éther."
       },
       {
         id: "surmesure",
@@ -68,7 +68,7 @@ const CHAT_KB = {
         id: "inspiration",
         label: "Where does the inspiration come from?",
         keywords: ["inspir", "idea", "creat", "why", "emilie", "story"],
-        answer: "All of Émilie's inspiration comes from nature: driftwood gathered along the coast, clay, linen, cork… Every piece celebrates one of the brand's five elements — water, earth, wood, wind and fire. Read her full story on the \"Our story\" page."
+        answer: "All of Émilie's inspiration comes from nature: driftwood gathered along the coast, clay, linen, cork… Every piece celebrates one of the brand's five elements — water, earth, wood, wind and ether. Read her full story on the \"Our story\" page."
       },
       {
         id: "paiement",
@@ -86,7 +86,7 @@ const CHAT_KB = {
         id: "matieres",
         label: "What materials?",
         keywords: ["material", "wood", "clay", "linen", "cork", "made of", "natural"],
-        answer: "Driftwood, clay, linen, cork, brass… every creation is shaped from raw, natural materials, echoing the brand's five elements: water, earth, wood, wind and fire."
+        answer: "Driftwood, clay, linen, cork, brass… every creation is shaped from raw, natural materials, echoing the brand's five elements: water, earth, wood, wind and ether."
       },
       {
         id: "surmesure",
@@ -121,7 +121,7 @@ const CHAT_KB = {
         id: "inspiration",
         label: "¿De dónde viene la inspiración?",
         keywords: ["inspir", "idea", "creac", "por que", "emilie", "historia"],
-        answer: "Toda la inspiración de Émilie viene de la naturaleza: madera flotante recogida en la costa, arcilla, lino, corcho… Cada pieza celebra uno de los cinco elementos de la marca — agua, tierra, madera, viento y fuego. Lee su historia completa en la página «Nuestra historia»."
+        answer: "Toda la inspiración de Émilie viene de la naturaleza: madera flotante recogida en la costa, arcilla, lino, corcho… Cada pieza celebra uno de los cinco elementos de la marca — agua, tierra, madera, viento y éter. Lee su historia completa en la página «Nuestra historia»."
       },
       {
         id: "paiement",
@@ -139,7 +139,7 @@ const CHAT_KB = {
         id: "matieres",
         label: "¿Qué materiales?",
         keywords: ["material", "madera", "arcilla", "lino", "corcho", "hecho de", "natural"],
-        answer: "Madera flotante, arcilla, lino, corcho, latón… cada creación se moldea con materiales brutos y naturales, en eco a los cinco elementos de la marca: agua, tierra, madera, viento y fuego."
+        answer: "Madera flotante, arcilla, lino, corcho, latón… cada creación se moldea con materiales brutos y naturales, en eco a los cinco elementos de la marca: agua, tierra, madera, viento y éter."
       },
       {
         id: "surmesure",
