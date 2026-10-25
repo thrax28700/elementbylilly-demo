@@ -1,11 +1,11 @@
 // ELEMENT by Lilly — scene animee de l'accueil : les cinq elements prennent vie en fond.
-// Eau : bulles et houle · Terre : poussiere ocre et courbes de niveau · Bois : feuilles qui tombent
+// Eau : bulles et houle · Terre : poussiere ocre et courbes de niveau · Feu : braises qui montent
 // Air : filets d'air · Ether : poussieres de lumiere reliees entre elles, comme un lien entre toutes choses. Au centre, l'embleme de la marque prend la couleur de l'element. Le choix d'un element pilote aussi l'ambiance sonore.
 
 const ELEMENT_COLORS = {
   eau: ["#BFE3F0", "#7CB7D1"],
   terre: ["#E8C39E", "#C98E5F"],
-  bois: ["#B9D3A8", "#E3C77C"],
+  feu: ["#FFC27A", "#FF7A3D"],
   air: ["#FFFFFF", "#D7E6EE"],
   ether: ["#E9DDFF", "#C7B2F5"],
 };
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let userChose = false;
   let visible = true;
   let pointer = { x: -9999, y: -9999 };
-  const layers = { eau: 1, terre: 0, bois: 0, air: 0, ether: 0 };
+  const layers = { eau: 1, terre: 0, feu: 0, air: 0, ether: 0 };
   const particles = [];
   const COUNT = window.innerWidth < 700 ? 45 : 85;
 
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     switch (mode) {
       case "eau": p.x = rand(0, W); p.y = initial ? rand(0, H) : H + 10; p.vx = 0; p.vy = rand(-0.9, -0.35); p.r = rand(1.5, 6); break;
       case "ether": p.x = rand(0, W); p.y = rand(0, H); p.vx = rand(-0.35, 0.35); p.vy = rand(-0.35, 0.35); p.r = rand(1, 2.4); break;
-      case "bois": p.x = rand(0, W); p.y = initial ? rand(0, H) : -20; p.vx = rand(-0.3, 0.3); p.vy = rand(0.4, 1.0); p.r = rand(4, 9); break;
+      case "feu": p.x = rand(0, W); p.y = initial ? rand(0, H) : H + 10; p.vx = rand(-0.2, 0.2); p.vy = rand(-1.6, -0.6); p.r = rand(1, 2.6); break;
       case "air": p.x = initial ? rand(0, W) : -60; p.y = rand(0, H); p.vx = rand(2.2, 4.5); p.vy = 0; p.r = rand(30, 90); break;
       default: p.x = rand(0, W); p.y = rand(0, H); p.vx = rand(-0.25, 0.25); p.vy = rand(-0.15, 0.15); p.r = rand(0.8, 2.4);
     }
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     p.age++;
     p.phase += 0.02;
     if (p.mode === "eau") p.x += Math.sin(p.phase) * 0.4;
-    if (p.mode === "bois") { p.x += Math.sin(p.phase) * 0.8; p.rot += p.spin; }
+    if (p.mode === "feu") p.x += Math.sin(p.phase * 1.7) * 0.5;
     if (p.mode === "ether") { p.x += Math.cos(p.phase) * 0.25; p.y += Math.sin(p.phase) * 0.25; }
     if (p.mode === "air") p.y += Math.sin(p.phase) * 0.4;
     // Le pointeur ecarte doucement les particules
@@ -95,12 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 5, 0, Math.PI * 2); ctx.fill();
         break;
       }
-      case "bois":
-        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot);
-        ctx.fillStyle = p.color; ctx.globalAlpha = a * 0.75;
-        ctx.beginPath(); ctx.ellipse(0, 0, p.r, p.r * 0.42, 0, 0, Math.PI * 2); ctx.fill();
-        ctx.restore();
+      case "feu": {
+        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 5);
+        g.addColorStop(0, p.color); g.addColorStop(1, "rgba(255,120,60,0)");
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 5, 0, Math.PI * 2); ctx.fill();
         break;
+      }
       case "air":
         ctx.strokeStyle = p.color; ctx.lineWidth = 1; ctx.globalAlpha = a * 0.5;
         ctx.beginPath(); ctx.moveTo(p.x - p.r, p.y);
@@ -144,6 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         ctx.stroke();
       }
+    }
+    // Lueur basse (feu)
+    if (layers.feu > 0.01) {
+      const g = ctx.createRadialGradient(W * 0.5, H * 1.05, 0, W * 0.5, H * 1.05, H * 0.9);
+      g.addColorStop(0, "rgba(255,140,70,.35)"); g.addColorStop(1, "rgba(255,140,70,0)");
+      ctx.globalAlpha = layers.feu * (0.85 + Math.sin(tick * 0.05) * 0.15);
+      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
     }
     // Ether : les particules proches se relient par des fils de lumiere
     if (layers.ether > 0.01) {
@@ -220,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Les symboles de l'embleme sont aussi cliquables
   emblemSymbols.forEach(g => g.addEventListener("click", () => {
     userChose = true;
-    setActiveElement(g.getAttribute("class").match(/emb-(eau|terre|bois|air|ether)/)[1], "hero");
+    setActiveElement(g.getAttribute("class").match(/emb-(eau|terre|feu|air|ether)/)[1], "hero");
   }));
 
   // Tant que le visiteur n'a rien choisi, les elements se succedent lentement

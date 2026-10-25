@@ -15,9 +15,9 @@ const PRODUCTS = [
       "assets/img/products/le-phare-des-marees-6.jpg"
     ],
     "elements": [
-      "bois",
+      "terre",
       "eau",
-      "terre"
+      "feu"
     ],
     "description": [
       "Entièrement façonnée à la main à partir d'une souche de chêne, cette sculpture unique invite à l'évasion et à la rêverie. Au sommet d'une falaise sculptée par la nature se dresse un phare aux teintes douces, veillant sur un petit village côtier niché dans les reliefs du bois.",
@@ -33,7 +33,7 @@ const PRODUCTS = [
     "price": 80,
     "image": "assets/img/products/maison-en-bois.jpg",
     "elements": [
-      "bois"
+      "terre"
     ]
   },
   {
@@ -43,7 +43,7 @@ const PRODUCTS = [
     "price": 79,
     "image": "assets/img/products/navire-en-bois-flott.jpg",
     "elements": [
-      "bois",
+      "terre",
       "air"
     ]
   },
@@ -54,8 +54,9 @@ const PRODUCTS = [
     "price": 60,
     "image": "assets/img/products/phare-c-tier-en-bois-flott.jpg",
     "elements": [
-      "bois",
-      "eau"
+      "terre",
+      "eau",
+      "feu"
     ]
   },
   {
@@ -65,8 +66,9 @@ const PRODUCTS = [
     "price": 100,
     "image": "assets/img/products/port-c-tier.jpg",
     "elements": [
-      "bois",
-      "eau"
+      "terre",
+      "eau",
+      "feu"
     ]
   },
   {
@@ -76,7 +78,7 @@ const PRODUCTS = [
     "price": 80,
     "image": "assets/img/products/village-c-tier.jpg",
     "elements": [
-      "bois",
+      "terre",
       "eau"
     ]
   },
@@ -87,8 +89,9 @@ const PRODUCTS = [
     "price": 100,
     "image": "assets/img/products/village-de-p-cheurs-en-bois-flott.jpg",
     "elements": [
-      "bois",
-      "air"
+      "terre",
+      "air",
+      "feu"
     ]
   },
   {
@@ -98,7 +101,7 @@ const PRODUCTS = [
     "price": 120,
     "image": "assets/img/products/voilier-en-bois-flott-et-voile-en-toile-de-lin.jpg",
     "elements": [
-      "bois",
+      "terre",
       "air"
     ]
   },
@@ -109,7 +112,6 @@ const PRODUCTS = [
     "price": 75,
     "image": "assets/img/products/h-tel-en-bois.jpg",
     "elements": [
-      "bois",
       "terre"
     ]
   },
@@ -132,7 +134,7 @@ const PRODUCTS = [
     "price": 210,
     "image": "assets/img/products/intuition.jpg",
     "elements": [
-      "bois",
+      "terre",
       "ether"
     ]
   },
@@ -198,7 +200,7 @@ const PRODUCTS = [
     "image": "assets/img/products/boucles-d-oreilles-egyptian.jpg",
     "elements": [
       "terre",
-      "ether"
+      "feu"
     ]
   },
   {
@@ -209,7 +211,7 @@ const PRODUCTS = [
     "image": "assets/img/products/boucles-d-oreilles-egyptian-bleu.jpg",
     "elements": [
       "terre",
-      "ether"
+      "feu"
     ]
   },
   {
@@ -241,7 +243,7 @@ const PRODUCTS = [
     "image": "assets/img/products/boucles-d-oreilles-marbre-dor.jpg",
     "elements": [
       "terre",
-      "ether"
+      "feu"
     ]
   },
   {
@@ -252,7 +254,7 @@ const PRODUCTS = [
     "image": "assets/img/products/boucles-d-oreilles-oc-an-d-or.jpg",
     "elements": [
       "eau",
-      "ether"
+      "feu"
     ]
   },
   {
@@ -326,4 +328,4 @@ const PRODUCTS = [
 const CATEGORY_ORDER = ["decorations-a-poser", "illustrations", "bijoux"];
 
 // Les cinq elements de la marque — chaque creation est rattachee a ceux qui l'ont inspiree
-const ELEMENT_ORDER = ["eau", "terre", "bois", "air", "ether"];
+const ELEMENT_ORDER = ["eau", "terre", "feu", "air", "ether"];
