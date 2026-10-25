@@ -63,7 +63,7 @@ assets/img/products/  → 27 photos produits (optimisées, ~1,3 Mo au total)
 assets/img/site/      → logo et icônes
 ```
 
-Pour ajouter/modifier un produit plus tard : éditer `js/products.js` (nom, prix, catégorie, éléments, image dans `assets/img/products/`), puis lancer `node outils/generer-fiches.js` : cela régénère les fiches `creations/*.html` et le `sitemap.xml`.
+Pour ajouter/modifier un produit plus tard : éditer `js/products.js` (nom, prix, catégorie, éléments, image dans `assets/img/products/`), puis lancer `node outils/versionner.js` et `node outils/generer-fiches.js` : le premier oblige les navigateurs à recharger les fichiers à jour, le second régénère les fiches `creations/*.html` et le `sitemap.xml`.
 
 ## 6. Référencement (SEO)
 
