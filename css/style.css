@@ -876,3 +876,69 @@ img, svg{
   display:inline-flex; align-items:center; gap:6px; border:0; background:none; padding:2px 0; cursor:pointer;
   font-family:var(--font-sans); font-size:.8rem; color:var(--terre-dark); text-decoration:underline; text-underline-offset:3px;
 }
+
+/* ==========================================================================
+   Apaisement : plus d'air, des mouvements lents, des details plus fins
+   ========================================================================== */
+section{ padding:140px 0; }
+h2{ font-weight:400; letter-spacing:.01em; }
+p{ line-height:1.8; }
+.eyebrow{ letter-spacing:.26em; font-size:.68rem; }
+.section-head::after{ width:40px; height:1px; }
+.section-head{ margin-bottom:64px; }
+
+/* Ombres plus douces, survols plus discrets */
+:root{ --shadow:0 18px 50px rgba(58,52,44,.07); --shadow-soft:0 6px 20px rgba(58,52,44,.045); }
+.product-card:hover .product-media img, .craft-img:hover img, .category-card:hover img{ transform:scale(1.03); }
+.product-media img, .craft-img img{ transition:transform 1.2s ease; }
+.btn:hover, .btn-primary:hover, .btn-outline:hover, .btn-light:hover{ transform:none; }
+
+/* Grilles alignees partout (plus de cartes en decale) */
+.product-grid .product-card:nth-child(even){ margin-top:0; }
+.product-grid{ gap:44px 28px; }
+
+/* Apparitions plus lentes et plus legeres */
+.reveal{ transform:translateY(14px); transition:opacity 1.4s ease, transform 1.4s ease; }
+
+/* Hero : transitions de couleur plus longues, fil de l'element plus calme */
+.ehero-bg span{ transition:opacity 3s ease; }
+.ehero .eyebrow, .ehero-title .accent-word, .ehero-element-name, .ehero-portal{ transition-duration:2.4s; }
+.ehero-elements{ gap:26px; }
+.ehero-elements .ms{ border-color:rgba(255,255,255,.22); background:transparent; }
+.ehero-elements button.is-active .ms{ box-shadow:0 0 0 5px rgba(255,255,255,.08), 0 0 28px var(--el-accent); }
+.emb-spin{ animation-duration:160s; }
+.ehero-portal-ring{ animation-duration:70s; }
+
+/* Bandeau des elements : plus lent, plus leger */
+.marquee{ padding:18px 0; }
+.marquee-track{ animation-duration:150s; }
+.mq-art{ width:44px; height:44px; margin:0 48px; opacity:.75; }
+.mq-art path, .mq-art circle{ stroke-width:1.3; }
+
+/* Savoir-faire : une grande image et une petite, sans numeros ni pastille */
+.craft-img-2, .craft-num{ display:none; }
+.craft{ gap:96px; margin-bottom:160px; }
+.craft-media{ height:500px; }
+.craft-img-0{ width:74%; height:88%; }
+.craft-img-1{ width:40%; border-width:10px; }
+.craft-meta span{ background:transparent; border:1px solid var(--line); }
+
+/* Boutons flottants plus discrets : icone seule, le texte apparait au survol */
+.chat-bubble{ padding:14px; background:var(--text); }
+.chat-bubble:hover{ background:var(--terre); }
+.chat-bubble-label{ display:none; }
+.chat-bubble:hover .chat-bubble-label, .chat-bubble:focus-visible .chat-bubble-label{ display:inline; }
+.sound-toggle{ padding:11px 14px; border-color:transparent; background:rgba(255,255,255,.8); box-shadow:var(--shadow-soft); }
+.sound-toggle [data-sound-label]{ display:none; }
+.sound-toggle:hover [data-sound-label], .sound-toggle:focus-visible [data-sound-label]{ display:inline; }
+
+@media (max-width: 980px){
+  section{ padding:96px 0; }
+  .craft{ gap:40px; margin-bottom:110px; }
+  .craft-media{ height:400px; }
+}
+@media (max-width: 560px){
+  section{ padding:72px 0; }
+  .craft-media{ height:320px; }
+  .product-grid{ gap:36px 16px; }
+}

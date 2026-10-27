@@ -27,7 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let pointer = { x: -9999, y: -9999 };
   const layers = { eau: 1, terre: 0, feu: 0, air: 0, ether: 0 };
   const particles = [];
-  const COUNT = window.innerWidth < 700 ? 45 : 85;
+  const COUNT = window.innerWidth < 700 ? 28 : 50;
+  const SPEED = 0.55; // mouvements lents et apaises
 
   function resize(){
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dx = p.x - pointer.x, dy = p.y - pointer.y;
     const d2 = dx * dx + dy * dy;
     if (d2 < 14000) { const f = (14000 - d2) / 14000 * 1.6; const d = Math.sqrt(d2) || 1; p.x += dx / d * f; p.y += dy / d * f; }
-    p.x += p.vx; p.y += p.vy;
+    p.x += p.vx * SPEED; p.y += p.vy * SPEED;
     const out = p.y < -40 || p.y > H + 40 || p.x < -120 || p.x > W + 120;
     if (p.age > p.life || out) spawn(p, false);
   }
@@ -235,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (userChose || document.hidden || !visible) return;
     const order = ELEMENT_ORDER;
     setActiveElement(order[(order.indexOf(mode) + 1) % order.length], "auto");
-  }, 9000);
+  }, 14000);
 
   hero.addEventListener("pointermove", (e) => {
     const r = hero.getBoundingClientRect();
