@@ -1,5 +1,5 @@
 // ELEMENT by Lilly — service worker (cache basique pour usage hors-ligne / installation PWA)
-const CACHE_NAME = "ebl-cache-v21";
+const CACHE_NAME = "ebl-cache-v22";
 const CORE_ASSETS = [
   "index.html",
   "boutique.html",
@@ -14,7 +14,6 @@ const CORE_ASSETS = [
   "js/elements-scene.js",
   "js/protect.js",
   "assets/img/site/logo.png",
-  "assets/img/site/emblem.svg",
   "assets/img/site/icon-192.png",
   "assets/img/site/icon-512.png",
 ];

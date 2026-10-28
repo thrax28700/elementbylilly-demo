@@ -12,7 +12,6 @@ const I18N = {
     "nav.boutique": "Boutique",
     "nav.histoire": "Notre histoire",
     "nav.contact": "Contact",
-    "nav.selection": "Ma sélection",
 
     "cat.bijoux": "Bijoux",
     "cat.decorations-a-poser": "Décorations à poser",
@@ -28,9 +27,7 @@ const I18N = {
     "hero.lead": "Dans son atelier près de Chartres, Émilie façonne à la main des pièces uniques, chacune née de l'un des cinq éléments.",
     "hero.cta.shop": "Explorer la boutique",
     "hero.cta.story": "Découvrir l'histoire",
-    "hero.cta.sound": "Écouter l'ambiance",
     "hero.choose": "Choisissez un élément",
-    "hero.portal.hint": "Voir la pièce",
     "el.eau": "Eau",
     "el.terre": "Terre",
     "el.feu": "Feu",
@@ -44,10 +41,6 @@ const I18N = {
     "sound.on": "Couper le son",
     "sound.off": "Activer le son",
 
-    "intro.eyebrow": "La marque",
-    "intro.title": "Une artisane, une sensibilité",
-    "intro.text": "ELEMENT by Lilly est né de la sensibilité profonde d'Émilie et de sa passion pour la beauté authentique de la nature. Chaque pièce est façonnée à la main, avec soin, dans le respect du vivant.",
-    "intro.link": "Lire notre histoire",
 
     "crafts.eyebrow": "Ses savoir-faire",
     "crafts.title": "Trois gestes, un même souffle",
@@ -64,9 +57,6 @@ const I18N = {
     "explorer.title": "Choisissez votre élément",
     "explorer.note": "Chaque création est née d'un élément. Laissez-vous guider par celui qui vous ressemble — l'ambiance sonore le suit.",
     "explorer.cta": "Tout voir dans la boutique",
-    "gallery.eyebrow": "La galerie",
-    "gallery.title": "Toutes les créations, d'un seul regard",
-    "gallery.hint": "Faites glisser",
     "boutique.elements": "Par élément",
 
     "contact-teaser.eyebrow": "Restons en lien",
@@ -132,13 +122,9 @@ const I18N = {
     "footer.tagline": "Sculptures en bois, dessins et bijoux faits main par Émilie, près de Chartres (28).",
     "footer.nav": "Navigation",
     "footer.follow": "Nous suivre",
-    "footer.legal": "Site vitrine de démonstration",
     "footer.rights": "Tous droits réservés.",
     "footer.demo": "Prototype de démonstration",
 
-    "install.title": "Installer l'application",
-    "install.text": "Ajoutez ELEMENT by Lilly à votre écran d'accueil pour un accès en un geste.",
-    "install.cta": "Installer",
   },
 
   en: {
@@ -153,7 +139,6 @@ const I18N = {
     "nav.boutique": "Shop",
     "nav.histoire": "Our story",
     "nav.contact": "Contact",
-    "nav.selection": "My selection",
 
     "cat.bijoux": "Jewelry",
     "cat.decorations-a-poser": "Tabletop decor",
@@ -169,9 +154,7 @@ const I18N = {
     "hero.lead": "In her workshop near Chartres, Émilie handcrafts one-of-a-kind pieces, each born from one of the five elements.",
     "hero.cta.shop": "Explore the shop",
     "hero.cta.story": "Discover our story",
-    "hero.cta.sound": "Listen to the ambience",
     "hero.choose": "Choose an element",
-    "hero.portal.hint": "See the piece",
     "el.eau": "Water",
     "el.terre": "Earth",
     "el.feu": "Fire",
@@ -185,10 +168,6 @@ const I18N = {
     "sound.on": "Mute sound",
     "sound.off": "Turn sound on",
 
-    "intro.eyebrow": "The brand",
-    "intro.title": "One artisan, one sensibility",
-    "intro.text": "ELEMENT by Lilly was born from Émilie's deep sensitivity and her passion for the authentic beauty of nature. Every piece is shaped by hand, with care, in respect of the living world.",
-    "intro.link": "Read our story",
 
     "crafts.eyebrow": "Her crafts",
     "crafts.title": "Three gestures, one breath",
@@ -205,9 +184,6 @@ const I18N = {
     "explorer.title": "Choose your element",
     "explorer.note": "Every creation is born from an element. Follow the one that feels like you — the ambient sound follows along.",
     "explorer.cta": "View everything in the shop",
-    "gallery.eyebrow": "The gallery",
-    "gallery.title": "Every creation, at a glance",
-    "gallery.hint": "Drag to explore",
     "boutique.elements": "By element",
 
     "contact-teaser.eyebrow": "Stay in touch",
@@ -273,13 +249,9 @@ const I18N = {
     "footer.tagline": "Wood sculptures, drawings and jewelry handmade by Émilie, near Chartres, France.",
     "footer.nav": "Navigation",
     "footer.follow": "Follow us",
-    "footer.legal": "Demo showcase site",
     "footer.rights": "All rights reserved.",
     "footer.demo": "Demo prototype",
 
-    "install.title": "Install the app",
-    "install.text": "Add ELEMENT by Lilly to your home screen for one-tap access.",
-    "install.cta": "Install",
   },
 
   es: {
@@ -294,7 +266,6 @@ const I18N = {
     "nav.boutique": "Tienda",
     "nav.histoire": "Nuestra historia",
     "nav.contact": "Contacto",
-    "nav.selection": "Mi selección",
 
     "cat.bijoux": "Joyas",
     "cat.decorations-a-poser": "Decoración de mesa",
@@ -310,9 +281,7 @@ const I18N = {
     "hero.lead": "En su taller cerca de Chartres, Émilie crea a mano piezas únicas, cada una nacida de uno de los cinco elementos.",
     "hero.cta.shop": "Explorar la tienda",
     "hero.cta.story": "Descubrir la historia",
-    "hero.cta.sound": "Escuchar el ambiente",
     "hero.choose": "Elige un elemento",
-    "hero.portal.hint": "Ver la pieza",
     "el.eau": "Agua",
     "el.terre": "Tierra",
     "el.feu": "Fuego",
@@ -326,10 +295,6 @@ const I18N = {
     "sound.on": "Silenciar",
     "sound.off": "Activar el sonido",
 
-    "intro.eyebrow": "La marca",
-    "intro.title": "Una artesana, una sensibilidad",
-    "intro.text": "ELEMENT by Lilly nació de la profunda sensibilidad de Émilie y su pasión por la belleza auténtica de la naturaleza. Cada pieza se moldea a mano, con cuidado, respetando lo vivo.",
-    "intro.link": "Leer nuestra historia",
 
     "crafts.eyebrow": "Sus oficios",
     "crafts.title": "Tres gestos, un mismo aliento",
@@ -346,9 +311,6 @@ const I18N = {
     "explorer.title": "Elige tu elemento",
     "explorer.note": "Cada creación nace de un elemento. Déjate guiar por el que se te parece: el sonido ambiente lo acompaña.",
     "explorer.cta": "Ver todo en la tienda",
-    "gallery.eyebrow": "La galería",
-    "gallery.title": "Todas las creaciones, de un vistazo",
-    "gallery.hint": "Desliza",
     "boutique.elements": "Por elemento",
 
     "contact-teaser.eyebrow": "Mantengámonos en contacto",
@@ -414,13 +376,9 @@ const I18N = {
     "footer.tagline": "Esculturas de madera, dibujos y joyas hechas a mano por Émilie, cerca de Chartres (Francia).",
     "footer.nav": "Navegación",
     "footer.follow": "Síguenos",
-    "footer.legal": "Sitio de demostración",
     "footer.rights": "Todos los derechos reservados.",
     "footer.demo": "Prototipo de demostración",
 
-    "install.title": "Instalar la aplicación",
-    "install.text": "Añade ELEMENT by Lilly a tu pantalla de inicio para acceder en un toque.",
-    "install.cta": "Instalar",
   }
 };
 

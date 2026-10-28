@@ -191,9 +191,9 @@ function closeQuickView(){
 
 /* ---------- Page d'accueil : savoir-faire, explorateur par element, galerie ---------- */
 const CRAFTS = [
-  { key: "bois", cat: "decorations-a-poser", images: ["le-phare-des-marees", "voilier-en-bois-flotte-et-voile-en-toile-de-lin", "village-cotier"] },
-  { key: "dessin", cat: "illustrations", images: ["intuition", "insouciance", "resilience"] },
-  { key: "bijoux", cat: "bijoux", images: ["boucles-d-oreilles-reve-azur", "boucles-d-oreilles-terre-de-lune-1", "boucles-d-oreilles-ocean-d-or-1"] },
+  { key: "bois", cat: "decorations-a-poser", images: ["le-phare-des-marees", "voilier-en-bois-flotte-et-voile-en-toile-de-lin"] },
+  { key: "dessin", cat: "illustrations", images: ["intuition", "insouciance"] },
+  { key: "bijoux", cat: "bijoux", images: ["boucles-d-oreilles-reve-azur", "boucles-d-oreilles-terre-de-lune-1"] },
 ];
 
 function productById(id){ return PRODUCTS.find(p => p.id === id); }
@@ -211,7 +211,6 @@ function renderCrafts(){
           ${imgs.map((p, k) => `<button type="button" class="craft-img craft-img-${k}" data-quickview-id="${p.id}" aria-label="${p.name}"><img src="${p.image}" alt="${productAlt(p)}" loading="lazy"></button>`).join("")}
         </div>
         <div class="craft-body">
-          <span class="craft-num">0${i + 1}</span>
           <h3 data-i18n="craft.${c.key}.title">${t('craft.' + c.key + '.title')}</h3>
           <p data-i18n="craft.${c.key}.text">${t('craft.' + c.key + '.text')}</p>
           <div class="craft-meta">
@@ -271,40 +270,6 @@ function renderExplorer(){
   }));
 }
 
-function renderGallery(){
-  const strip = document.querySelector("[data-gallery]");
-  if (!strip) return;
-  strip.innerHTML = PRODUCTS.map(p => `
-    <a class="gallery-item" href="${productUrl(p)}" data-quickview-id="${p.id}" draggable="false">
-      <img src="${p.image}" alt="${productAlt(p)}" loading="lazy" draggable="false">
-      <span class="gallery-caption"><strong>${p.name}</strong><span>${formatPrice(p.price)}</span></span>
-    </a>
-  `).join("");
-  strip.querySelectorAll("[data-quickview-id]").forEach(btn => btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (strip.dataset.dragged === "1") return;
-    openQuickView(btn.getAttribute("data-quickview-id"));
-  }));
-  if (strip.dataset.wired) return;
-  strip.dataset.wired = "1";
-  // Glisser a la souris (le tactile defile nativement)
-  let down = false, startX = 0, startScroll = 0;
-  strip.addEventListener("pointerdown", (e) => {
-    if (e.pointerType !== "mouse") return;
-    down = true; startX = e.clientX; startScroll = strip.scrollLeft; strip.dataset.dragged = "0";
-  });
-  window.addEventListener("pointermove", (e) => {
-    if (!down) return;
-    const dx = e.clientX - startX;
-    if (Math.abs(dx) > 5) { strip.dataset.dragged = "1"; strip.classList.add("is-dragging"); }
-    strip.scrollLeft = startScroll - dx;
-  });
-  window.addEventListener("pointerup", () => {
-    down = false; strip.classList.remove("is-dragging");
-    setTimeout(() => { strip.dataset.dragged = "0"; }, 0);
-  });
-}
-
 function observeReveal(root){
   const els = root.querySelectorAll(".reveal:not(.in-view)");
   if (!("IntersectionObserver" in window)) { els.forEach(el => el.classList.add("in-view")); return; }
@@ -318,7 +283,6 @@ function renderHome(){
   renderMarquee();
   renderCrafts();
   renderExplorer();
-  renderGallery();
 }
 
 document.addEventListener("elementchange", (e) => {
@@ -457,7 +421,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderMarquee();
     renderCrafts();
     renderExplorer();
-    renderGallery();
     updateSelectionUI();
   });
 });

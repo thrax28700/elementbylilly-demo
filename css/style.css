@@ -173,12 +173,6 @@ p{ margin:0 0 1em; color:var(--text-soft); }
 [data-bg="air"]{ background:radial-gradient(ellipse at 72% 36%, #A9C0CE 0%, rgba(169,192,206,0) 60%), linear-gradient(160deg, #33445A 0%, #6F8A9C 100%); }
 [data-bg="ether"]{ background:radial-gradient(ellipse at 72% 40%, #6E5BA6 0%, rgba(110,91,166,0) 60%), linear-gradient(160deg, #19132B 0%, #3B2E5E 100%); }
 .ehero canvas{ position:absolute; inset:0; z-index:1; pointer-events:none; }
-.ehero-word{
-  position:absolute; z-index:1; left:50%; bottom:-.16em; transform:translateX(-50%);
-  font-family:var(--font-serif); font-weight:600; font-size:min(16vw, 230px); line-height:1;
-  letter-spacing:.04em; white-space:nowrap; pointer-events:none; user-select:none;
-  color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.13);
-}
 .ehero-inner{
   position:relative; z-index:2; width:100%;
   display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;
@@ -245,9 +239,8 @@ p{ margin:0 0 1em; color:var(--text-soft); }
   animation:logoFloat 7s ease-in-out infinite;
 }
 @keyframes logoFloat{ 0%,100%{ transform:translate(-50%, -50%); } 50%{ transform:translate(-50%, calc(-50% - 6px)); } }
-.emb-spin, .emb-flower{ transform-box:view-box; transform-origin:50% 50%; }
+.emb-spin{ transform-box:view-box; transform-origin:50% 50%; }
 .emb-spin{ animation:spin 90s linear infinite; }
-.emb-flower{ animation:spin 140s linear infinite reverse; }
 .emb-el{ opacity:.4; cursor:pointer; pointer-events:bounding-box; transition:opacity .8s ease, filter .8s ease; }
 .emb-el:hover{ opacity:.8; }
 .ehero[data-mode="eau"] .emb-eau,
@@ -263,7 +256,7 @@ p{ margin:0 0 1em; color:var(--text-soft); }
   background:var(--el-accent); box-shadow:0 0 18px var(--el-accent); transition:background 1.2s ease;
 }
 @media (prefers-reduced-motion: reduce){
-  .emb-spin, .emb-flower, .ehero-logo{ animation:none; }
+  .emb-spin, .ehero-logo{ animation:none; }
 }
 .ehero-caption{ text-align:center; max-width:360px; }
 .ehero-element-name{
@@ -471,14 +464,6 @@ section{ padding:120px 0; }
 }
 .selection-overlay.open{ opacity:1; visibility:visible; }
 
-.install-banner{
-  position:fixed; left:16px; right:16px; bottom:16px; z-index:500;
-  background:#fff; border-radius:var(--radius-md); box-shadow:var(--shadow);
-  padding:18px 20px; display:flex; align-items:center; gap:16px; max-width:460px; margin:0 auto;
-}
-.install-banner p{ margin:0; font-size:.85rem; flex:1; }
-.install-banner strong{ display:block; font-family:var(--font-serif); font-size:1rem; color:var(--text); }
-.install-banner .dismiss{ background:none; border:0; cursor:pointer; color:var(--text-soft); font-size:1.1rem; }
 
 /* Footer */
 .site-footer{ position:relative; background:#F3EBDC; border-top:1px solid var(--line); padding:70px 0 30px; }
@@ -504,7 +489,6 @@ section{ padding:120px 0; }
 /* Utility */
 .text-center{ text-align:center; }
 .mt-lg{ margin-top:64px; }
-.visually-hidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 980px){
@@ -648,14 +632,8 @@ section{ padding:120px 0; }
 .craft-img:hover img{ transform:scale(1.06); }
 .craft-img-0{ left:0; top:0; width:70%; height:84%; border-radius:var(--radius-lg); }
 .craft-img-1{ right:0; bottom:0; width:46%; aspect-ratio:1/1; border-radius:var(--radius-lg); border:8px solid var(--bg); }
-.craft-img-2{ right:6%; top:2%; width:120px; height:120px; border-radius:50%; border:6px solid var(--bg); }
 .craft-reverse .craft-img-0{ left:auto; right:0; }
 .craft-reverse .craft-img-1{ right:auto; left:0; }
-.craft-reverse .craft-img-2{ right:auto; left:6%; }
-.craft-num{
-  display:block; font-family:var(--font-serif); font-size:5rem; line-height:1; margin-bottom:12px;
-  color:transparent; -webkit-text-stroke:1px var(--terre);
-}
 .craft-body h3{ font-size:clamp(1.8rem, 3vw, 2.5rem); }
 .craft-body p{ font-size:1.05rem; max-width:480px; }
 .craft-meta{ display:flex; gap:10px; flex-wrap:wrap; margin:22px 0 30px; }
@@ -670,7 +648,6 @@ section{ padding:120px 0; }
 }
 @media (max-width: 560px){
   .craft-media{ height:340px; }
-  .craft-img-2{ width:90px; height:90px; }
 }
 
 /* ---------- Explorateur par element ---------- */
@@ -695,31 +672,6 @@ section{ padding:120px 0; }
 .product-grid.is-swapping .product-card:nth-child(4){ animation-delay:.18s; }
 .product-grid.is-swapping .product-card:nth-child(n+5){ animation-delay:.24s; }
 
-/* ---------- Galerie horizontale ---------- */
-.gallery{ overflow:hidden; }
-.gallery-hint{ font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; }
-.gallery-strip{
-  display:flex; gap:22px; overflow-x:auto; scroll-snap-type:x proximity;
-  padding:8px max(24px, calc((100vw - var(--container)) / 2 + 24px)) 28px;
-  scrollbar-width:thin; scrollbar-color:var(--sable) transparent; cursor:grab;
-}
-.gallery-strip.is-dragging{ cursor:grabbing; scroll-snap-type:none; }
-.gallery-strip.is-dragging .gallery-item{ pointer-events:none; }
-.gallery-item{
-  position:relative; flex:0 0 auto; width:min(300px, 72vw); aspect-ratio:4/5;
-  border-radius:var(--radius-md); overflow:hidden; padding:0; border:0; cursor:pointer;
-  scroll-snap-align:start; box-shadow:var(--shadow-soft); background:var(--bg-alt);
-}
-.gallery-item:nth-child(3n+2){ margin-top:40px; }
-.gallery-item img{ width:100%; height:100%; object-fit:cover; transition:transform .7s ease; filter:saturate(1.06); user-select:none; }
-.gallery-item:hover img{ transform:scale(1.06); }
-.gallery-caption{
-  position:absolute; inset:auto 0 0 0; padding:40px 18px 16px; text-align:left;
-  background:linear-gradient(0deg, rgba(42,38,32,.78), rgba(42,38,32,0));
-  color:#fff; display:flex; flex-direction:column; gap:2px;
-}
-.gallery-caption strong{ font-family:var(--font-serif); font-weight:500; font-size:1.02rem; line-height:1.25; }
-.gallery-caption span{ font-size:.82rem; opacity:.85; }
 
 /* ---------- Boutique : filtre par element ---------- */
 .element-bar{ display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; margin:-28px 0 48px; }
@@ -765,7 +717,7 @@ img, svg{
   -webkit-touch-callout:none;
 }
 @media print{
-  img, .ehero, .gallery, .crafts, .explorer, .product-grid{ display:none !important; }
+  img, .ehero, .crafts, .explorer, .product-grid{ display:none !important; }
   body::before{ content:"© ELEMENT by Lilly — contenu protégé"; display:block; padding:40px; font-size:18px; }
 }
 
@@ -809,7 +761,6 @@ img, svg{
 .pp-related h2{ margin-bottom:40px; }
 .product-title a:hover{ color:var(--terre); }
 .modal-page-link{ font-size:.85rem; color:var(--terre-dark); text-decoration:underline; text-underline-offset:3px; margin:14px 0 18px; }
-.gallery-item{ display:block; -webkit-user-drag:none; }
 @media (max-width: 980px){
   .pp-grid{ grid-template-columns:1fr; gap:36px; }
   .pp-body, .breadcrumb{ text-align:center; justify-content:center; }
@@ -889,7 +840,7 @@ p{ line-height:1.8; }
 
 /* Ombres plus douces, survols plus discrets */
 :root{ --shadow:0 18px 50px rgba(58,52,44,.07); --shadow-soft:0 6px 20px rgba(58,52,44,.045); }
-.product-card:hover .product-media img, .craft-img:hover img, .category-card:hover img{ transform:scale(1.03); }
+.product-card:hover .product-media img, .craft-img:hover img{ transform:scale(1.03); }
 .product-media img, .craft-img img{ transition:transform 1.2s ease; }
 .btn:hover, .btn-primary:hover, .btn-outline:hover, .btn-light:hover{ transform:none; }
 
@@ -916,7 +867,6 @@ p{ line-height:1.8; }
 .mq-art path, .mq-art circle{ stroke-width:1.3; }
 
 /* Savoir-faire : une grande image et une petite, sans numeros ni pastille */
-.craft-img-2, .craft-num{ display:none; }
 .craft{ gap:96px; margin-bottom:160px; }
 .craft-media{ height:500px; }
 .craft-img-0{ width:74%; height:88%; }
@@ -974,7 +924,6 @@ p{ line-height:1.8; }
 }
 .veil-eau::before{ background-image:url('../assets/img/elements/eau.jpg'); }
 .veil-terre::before{ background-image:url('../assets/img/elements/terre.jpg'); }
-.veil-feu::before{ background-image:url('../assets/img/elements/feu.jpg'); }
 .veil-air::before{ background-image:url('../assets/img/elements/air.jpg'); }
 .veil-ether::before{ background-image:url('../assets/img/elements/ether.jpg'); }
 .veil-air::before{ opacity:.18; }

@@ -46,8 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
     p.life = rand(6, 14) * 60;
     p.r = rand(1, 3.4);
     p.color = ELEMENT_COLORS[mode][Math.random() < 0.5 ? 0 : 1];
-    p.rot = rand(0, Math.PI * 2);
-    p.spin = rand(-0.02, 0.02);
     p.phase = rand(0, Math.PI * 2);
     switch (mode) {
       case "eau": p.x = rand(0, W); p.y = initial ? rand(0, H) : H + 10; p.vx = 0; p.vy = rand(-0.9, -0.35); p.r = rand(1.5, 6); break;

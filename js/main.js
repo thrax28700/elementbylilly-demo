@@ -57,26 +57,4 @@ document.addEventListener("DOMContentLoaded", () => {
       navigator.serviceWorker.register("sw.js").catch(() => {});
     });
   }
-
-  // Invite d'installation PWA
-  let deferredPrompt = null;
-  const installBanner = document.querySelector(".install-banner");
-  const installBtn = document.querySelector(".install-banner button");
-  window.addEventListener("beforeinstallprompt", (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    if (installBanner) installBanner.hidden = false;
-  });
-  if (installBtn) {
-    installBtn.addEventListener("click", async () => {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
-      deferredPrompt = null;
-      if (installBanner) installBanner.hidden = true;
-    });
-  }
-  window.addEventListener("appinstalled", () => {
-    if (installBanner) installBanner.hidden = true;
-  });
 });
