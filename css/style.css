@@ -942,3 +942,83 @@ p{ line-height:1.8; }
   .craft-media{ height:320px; }
   .product-grid{ gap:36px 16px; }
 }
+
+/* ==========================================================================
+   Photos des cinq elements (assets/img/elements/) : en fond, en transparence
+   ========================================================================== */
+
+/* Hero : la photo de l'element, fondue dans sa couleur, legerement fixe au defilement */
+.ehero-bg span::before{
+  content:""; position:absolute; inset:0;
+  background-size:cover; background-position:center; background-attachment:fixed;
+  mix-blend-mode:soft-light;
+}
+[data-bg="eau"]::before{ background-image:url('../assets/img/elements/eau.jpg'); opacity:.5; }
+[data-bg="terre"]::before{ background-image:url('../assets/img/elements/terre.jpg'); opacity:.42; }
+[data-bg="feu"]::before{ background-image:url('../assets/img/elements/feu.jpg'); opacity:.5; }
+[data-bg="air"]::before{ background-image:url('../assets/img/elements/air.jpg'); opacity:.3; }
+[data-bg="ether"]::before{ background-image:url('../assets/img/elements/ether.jpg'); opacity:.46; }
+
+/* Voile : photo tres pale derriere une section, bords fondus, fixe au defilement */
+.veil{ position:relative; isolation:isolate; }
+.veil::before{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background-size:cover; background-position:center; background-attachment:fixed;
+  opacity:.13;
+  -webkit-mask-image:linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  mask-image:linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+}
+.veil-top::before{
+  -webkit-mask-image:linear-gradient(180deg, #000 0%, #000 40%, transparent 100%);
+  mask-image:linear-gradient(180deg, #000 0%, #000 40%, transparent 100%);
+}
+.veil-eau::before{ background-image:url('../assets/img/elements/eau.jpg'); }
+.veil-terre::before{ background-image:url('../assets/img/elements/terre.jpg'); }
+.veil-feu::before{ background-image:url('../assets/img/elements/feu.jpg'); }
+.veil-air::before{ background-image:url('../assets/img/elements/air.jpg'); }
+.veil-ether::before{ background-image:url('../assets/img/elements/ether.jpg'); }
+.veil-air::before{ opacity:.18; }
+
+/* "Choisissez votre element" : la photo suit l'onglet choisi */
+.explorer{ position:relative; isolation:isolate; }
+.explorer-veils span{
+  position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background-size:cover; background-position:center; background-attachment:fixed;
+  opacity:0; transition:opacity 2.4s ease;
+  -webkit-mask-image:linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  mask-image:linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+}
+[data-veil="eau"]{ background-image:url('../assets/img/elements/eau.jpg'); }
+.explorer[data-mode="eau"] [data-veil="eau"]{ opacity:.14; }
+[data-veil="terre"]{ background-image:url('../assets/img/elements/terre.jpg'); }
+.explorer[data-mode="terre"] [data-veil="terre"]{ opacity:.14; }
+[data-veil="feu"]{ background-image:url('../assets/img/elements/feu.jpg'); }
+.explorer[data-mode="feu"] [data-veil="feu"]{ opacity:.14; }
+[data-veil="air"]{ background-image:url('../assets/img/elements/air.jpg'); }
+.explorer[data-mode="air"] [data-veil="air"]{ opacity:.14; }
+[data-veil="ether"]{ background-image:url('../assets/img/elements/ether.jpg'); }
+.explorer[data-mode="ether"] [data-veil="ether"]{ opacity:.14; }
+
+/* Boutique : chaque partie s'ouvre sur un bandeau tres pale de son element */
+.shop-section{ position:relative; isolation:isolate; }
+.shop-section::before{
+  content:""; position:absolute; left:0; right:0; top:0; height:320px; z-index:-1; pointer-events:none;
+  background-size:cover; background-position:center; opacity:.12; border-radius:var(--radius-lg);
+  -webkit-mask-image:linear-gradient(180deg, #000 0%, transparent 100%);
+  mask-image:linear-gradient(180deg, #000 0%, transparent 100%);
+}
+#decorations-a-poser::before{ background-image:url('../assets/img/elements/terre.jpg'); }
+#illustrations::before{ background-image:url('../assets/img/elements/ether.jpg'); }
+#bijoux::before{ background-image:url('../assets/img/elements/eau.jpg'); }
+.shop-section-head{ padding:0 24px; }
+
+/* Ecrans tactiles : le fond fixe n'y est pas gere, on le laisse defiler */
+@media (hover: none), (max-width: 980px){
+  .ehero-bg span::before, .veil::before, .explorer-veils span{ background-attachment:scroll; }
+}
+@media (max-width: 980px){ .shop-section-head{ padding:0 8px; } }
+/* En-tetes de page (boutique) : centres dans la grille du site, pas colles au bord */
+.container.section-head{ max-width:var(--container); margin-left:auto; margin-right:auto; }
+.container.section-head p{ max-width:640px; }
+.container.section-head::after{ margin-left:0; }
+@media (max-width: 980px){ .container.section-head p{ margin-left:auto; margin-right:auto; } .container.section-head::after{ margin-left:auto; } }
