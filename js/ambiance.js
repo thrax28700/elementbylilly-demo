@@ -266,6 +266,15 @@ const Ambiance = (() => {
     updateButtons();
   }
 
+  // Sourdine temporaire (pendant une video) : ne change pas le choix du visiteur
+  function duck(on){
+    if (!ctx || !playing) return;
+    const now = ctx.currentTime;
+    master.gain.cancelScheduledValues(now);
+    master.gain.setValueAtTime(master.gain.value, now);
+    master.gain.linearRampToValueAtTime(on ? 0 : MASTER_LEVEL, now + (on ? 0.8 : 3));
+  }
+
   function toggle(){ armed = false; playing ? stop() : start(); }
 
   // Tente de lancer le son des l'ouverture ; si le navigateur refuse, il demarre au premier geste du visiteur.
@@ -330,5 +339,5 @@ const Ambiance = (() => {
   }
 
   document.addEventListener("DOMContentLoaded", init);
-  return { start, stop, toggle, setElement };
+  return { start, stop, toggle, setElement, duck };
 })();

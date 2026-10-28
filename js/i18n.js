@@ -86,6 +86,10 @@ const I18N = {
 
     "bio.eyebrow": "Notre histoire",
     "bio.title": "Quand la création devient thérapeutique",
+    "histoire.video.eyebrow": "En 30 secondes",
+    "histoire.video.title": "L'univers d'Émilie en images",
+    "histoire.video.text": "Les cinq éléments, le bois flotté façonné avec patience, les dessins originaux et les bijoux en argile : une courte vidéo pour entrer dans l'atelier.",
+    "histoire.video.cta": "Lancer la vidéo",
     "bio.p1": "ELEMENT by Lilly est la marque d'Émilie, artisane créatrice installée à Saint-Georges-sur-Eure, près de Chartres. Bijoux en argile, décorations en bois flotté, dessins : tout naît de sa sensibilité profonde et de sa passion pour la beauté authentique de la nature.",
     "bio.p2": "Créée par une artiste hypersensible, chaque création est un hommage aux détails minutieux et à l'esthétisme artisanal, où chaque élément est façonné avec soin et amour. Inspirée par l'alchimie du vivant, la marque puise dans les forces et les trésors que la nature nous offre, célébrant la connexion intime entre les éléments qui composent notre monde.",
     "bio.p3": "À travers ELEMENT by Lilly, se déploie un univers où le respect du vivant et la magie des transformations naturelles prennent vie dans chaque pièce.",
@@ -213,6 +217,10 @@ const I18N = {
 
     "bio.eyebrow": "Our story",
     "bio.title": "When creating becomes therapeutic",
+    "histoire.video.eyebrow": "In 30 seconds",
+    "histoire.video.title": "Émilie's world in pictures",
+    "histoire.video.text": "The five elements, driftwood shaped with patience, original drawings and clay jewelry: a short video to step into the workshop.",
+    "histoire.video.cta": "Play the video",
     "bio.p1": "ELEMENT by Lilly is the brand of Émilie, a maker based in Saint-Georges-sur-Eure, near Chartres. Clay jewelry, driftwood decor, drawings: everything comes from her deep sensitivity and her passion for the authentic beauty of nature.",
     "bio.p2": "Created by a highly sensitive artist, each piece pays tribute to fine detail and artisanal craftsmanship, where every element is shaped with care and love. Inspired by the alchemy of living things, the brand draws on the strength and treasures nature offers, celebrating the intimate connection between the elements that make up our world.",
     "bio.p3": "Through ELEMENT by Lilly unfolds a world where respect for the living and the magic of natural transformation come alive in every piece.",
@@ -340,6 +348,10 @@ const I18N = {
 
     "bio.eyebrow": "Nuestra historia",
     "bio.title": "Cuando crear se vuelve terapéutico",
+    "histoire.video.eyebrow": "En 30 segundos",
+    "histoire.video.title": "El universo de Émilie en imágenes",
+    "histoire.video.text": "Los cinco elementos, la madera flotante trabajada con paciencia, los dibujos originales y las joyas de arcilla: un breve vídeo para entrar en el taller.",
+    "histoire.video.cta": "Ver el vídeo",
     "bio.p1": "ELEMENT by Lilly es la marca de Émilie, creadora instalada en Saint-Georges-sur-Eure, cerca de Chartres. Joyas de arcilla, decoración de madera flotante, dibujos: todo nace de su sensibilidad profunda y de su pasión por la belleza auténtica de la naturaleza.",
     "bio.p2": "Creada por una artista altamente sensible, cada creación es un homenaje al detalle minucioso y a la estética artesanal, donde cada elemento se moldea con cuidado y amor. Inspirada por la alquimia de lo vivo, la marca se nutre de las fuerzas y los tesoros que la naturaleza nos ofrece, celebrando la conexión íntima entre los elementos que componen nuestro mundo.",
     "bio.p3": "A través de ELEMENT by Lilly se despliega un universo donde el respeto por lo vivo y la magia de las transformaciones naturales cobran vida en cada pieza.",

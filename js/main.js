@@ -51,6 +51,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Video de "Notre histoire" : boutons de lecture, et ambiance du site en sourdine pendant la video
+  const storyVideo = document.querySelector("[data-story-video]");
+  if (storyVideo) {
+    const frame = storyVideo.closest(".story-video-frame");
+    document.querySelectorAll("[data-story-play]").forEach(btn => btn.addEventListener("click", () => {
+      storyVideo.play();
+      frame.scrollIntoView({ behavior: "smooth", block: "center" });
+    }));
+    // Les commandes n'apparaissent qu'une fois la video lancee : l'apercu reste epure
+    storyVideo.addEventListener("click", () => { if (!storyVideo.controls) storyVideo.play(); });
+    storyVideo.addEventListener("play", () => {
+      storyVideo.controls = true;
+      frame.classList.add("is-playing");
+      if (typeof Ambiance !== "undefined") Ambiance.duck(true);
+    });
+    ["pause", "ended"].forEach(type => storyVideo.addEventListener(type, () => {
+      if (type === "ended") frame.classList.remove("is-playing");
+      if (typeof Ambiance !== "undefined") Ambiance.duck(false);
+    }));
+  }
+
   // Enregistrement du service worker (PWA)
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
