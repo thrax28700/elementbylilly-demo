@@ -1,5 +1,5 @@
 // ELEMENT by Lilly — service worker (cache basique pour usage hors-ligne / installation PWA)
-const CACHE_NAME = "ebl-cache-v24";
+const CACHE_NAME = "ebl-cache-v25";
 const CORE_ASSETS = [
   "index.html",
   "boutique.html",

@@ -999,3 +999,17 @@ p{ line-height:1.8; }
   .story-video-text{ margin:0 auto; }
 }
 .story-video-frame video{ cursor:pointer; }
+
+/* ---------- Mentions legales ---------- */
+.footer-legal a{ text-decoration:underline; text-underline-offset:3px; }
+.footer-legal a:hover{ color:var(--terre); }
+.legal-page{ padding:90px 0 120px; }
+.legal-wrap{ max-width:760px; }
+.legal-wrap h1{ font-size:clamp(2.2rem, 4vw, 3.2rem); margin-bottom:48px; }
+.legal-wrap h2{ font-size:1.35rem; margin:48px 0 16px; }
+.legal-wrap p{ font-size:.98rem; }
+.legal-wrap a{ color:var(--terre-dark); text-decoration:underline; text-underline-offset:3px; }
+.legal-list{ display:grid; grid-template-columns:minmax(140px, 220px) 1fr; gap:12px 24px; margin:0; font-size:.98rem; }
+.legal-list dt{ color:var(--text-soft); }
+.legal-list dd{ margin:0; color:var(--text); min-width:0; }
+@media (max-width: 560px){ .legal-list{ grid-template-columns:1fr; gap:2px 0; } .legal-list dd{ margin-bottom:12px; } }
