@@ -128,6 +128,7 @@ const I18N = {
     "footer.follow": "Nous suivre",
     "footer.rights": "Tous droits réservés.",
     "footer.legal": "Mentions légales",
+    "footer.credit": "Site réalisé par",
     "footer.demo": "Prototype de démonstration",
 
   },
@@ -260,6 +261,7 @@ const I18N = {
     "footer.follow": "Follow us",
     "footer.rights": "All rights reserved.",
     "footer.legal": "Legal notice",
+    "footer.credit": "Website by",
     "footer.demo": "Demo prototype",
 
   },
@@ -392,6 +394,7 @@ const I18N = {
     "footer.follow": "Síguenos",
     "footer.rights": "Todos los derechos reservados.",
     "footer.legal": "Aviso legal",
+    "footer.credit": "Sitio creado por",
     "footer.demo": "Prototipo de demostración",
 
   }

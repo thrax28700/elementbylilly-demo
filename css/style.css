@@ -1013,3 +1013,13 @@ p{ line-height:1.8; }
 .legal-list dt{ color:var(--text-soft); }
 .legal-list dd{ margin:0; color:var(--text); min-width:0; }
 @media (max-width: 560px){ .legal-list{ grid-template-columns:1fr; gap:2px 0; } .legal-list dd{ margin-bottom:12px; } }
+
+/* ---------- Credit ARTNumerique : discret, il reprend ses couleurs au survol ---------- */
+.footer-credit{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:.7rem; letter-spacing:.06em; color:var(--text-soft); opacity:.75;
+  transition:opacity .4s ease;
+}
+.footer-credit img{ height:15px; width:auto; filter:grayscale(1) opacity(.6); transition:filter .4s ease; }
+.footer-credit:hover, .footer-credit:focus-visible{ opacity:1; }
+.footer-credit:hover img, .footer-credit:focus-visible img{ filter:none; }
